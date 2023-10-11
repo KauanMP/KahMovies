@@ -4,14 +4,14 @@
     "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Infrastructure\\Infrastructure.csproj",
-        "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Domain\\Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\kauan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kauan\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -39,6 +39,85 @@
           "targetAlias": "net6.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.14, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.413\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Infrastructure\\Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Infrastructure\\Infrastructure.csproj",
+        "projectName": "Infrastructure",
+        "projectPath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\kauan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\kauan\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Domain\\Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.2, )"
+            },
+            "Pomelo.EntityFrameworkCore.Mysql": {
               "target": "Package",
               "version": "[6.0.2, )"
             }

@@ -25,3 +25,14 @@ C:\Users\kauan\Área de Trabalho\KahMovies\Backend\WebUI\obj\Debug\net6.0\refint
 C:\Users\kauan\Área de Trabalho\KahMovies\Backend\WebUI\obj\Debug\net6.0\WebUI.pdb
 C:\Users\kauan\Área de Trabalho\KahMovies\Backend\WebUI\obj\Debug\net6.0\WebUI.genruntimeconfig.cache
 C:\Users\kauan\Área de Trabalho\KahMovies\Backend\WebUI\obj\Debug\net6.0\ref\WebUI.dll
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\WebUI\bin\Debug\net6.0\Infrastructure.dll
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\WebUI\bin\Debug\net6.0\Domain.dll
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\WebUI\bin\Debug\net6.0\Infrastructure.pdb
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\WebUI\bin\Debug\net6.0\Domain.pdb
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\WebUI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\WebUI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\WebUI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\WebUI\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\WebUI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\WebUI\bin\Debug\net6.0\MySqlConnector.dll
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\WebUI\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
