@@ -442,11 +442,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\WebUI\\WebUI.csproj",
+      "projectUniqueName": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\WebUI\\WebUI.csproj",
       "projectName": "WebUI",
-      "projectPath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\WebUI\\WebUI.csproj",
+      "projectPath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\WebUI\\WebUI.csproj",
       "packagesPath": "C:\\Users\\kauan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\WebUI\\obj\\",
+      "outputPath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\WebUI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kauan\\AppData\\Roaming\\NuGet\\NuGet.Config"

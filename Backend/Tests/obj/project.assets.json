@@ -6114,11 +6114,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Tests\\Tests.csproj",
+      "projectUniqueName": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Tests\\Tests.csproj",
       "projectName": "Tests",
-      "projectPath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Tests\\Tests.csproj",
+      "projectPath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Tests\\Tests.csproj",
       "packagesPath": "C:\\Users\\kauan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Tests\\obj\\",
+      "outputPath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kauan\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Infrastructure\\Infrastructure.csproj": {}
+    "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\kauan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kauan\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -37,6 +37,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IENHqUVUUEJ6S+ejr1EglUpgMcbPsFe09ndILdXM4iTR204hVyqw2vTnynk9WwX5xWjpWn9avmDx2L2Qz6cDFA==",
+  "dgSpecHash": "O64eKL6C9Efc0tPrx5J1UZPfDy8KfHm2JD6zfDS1Yf1BCR9D5lS4Ic51Mk6wiBXrX0Pu4CjoMqIV///NN5I+XQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Tests\\Tests.csproj",
+  "projectFilePath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\Tests\\Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kauan\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\kauan\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",

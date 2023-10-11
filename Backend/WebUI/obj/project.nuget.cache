@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zO7ocwBpma7WMsYtEeaFE2aQ1iF/Evbi0voETOE9NWYamX4J4seYuhc4zmCFLbVqv+oyK1nVyHTFhm7goibLsg==",
+  "dgSpecHash": "lGCYvFeO9u3w7PQ/iE+yy/7J1VjfK+4kganlM4FYHpNgyHjJMVU47mgEtNTfjg+71cXnck/u/zw1X/PJb8xjZw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\WebUI\\WebUI.csproj",
+  "projectFilePath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\WebUI\\WebUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kauan\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\kauan\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
