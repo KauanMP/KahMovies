@@ -1404,6 +1404,7 @@
       "Infrastructure >= 1.0.0",
       "Manager >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 6.0.14",
+      "Pomelo.EntityFrameworkCore.Mysql >= 6.0.2",
       "Swashbuckle.AspNetCore >= 6.5.0",
       "automapper >= 10.0.0"
     ]
@@ -1455,6 +1456,10 @@
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[6.0.14, )"
+          },
+          "Pomelo.EntityFrameworkCore.Mysql": {
+            "target": "Package",
+            "version": "[6.0.2, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",

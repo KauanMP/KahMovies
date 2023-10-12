@@ -9,8 +9,9 @@ namespace Domain.Interfaces
 {
     public interface IMovieRepository
     {
-        Task<IEnumerable<Movie>> GetAllMoviesAsync(Movie movie);
+        Task<IEnumerable<Movie>> GetAllMoviesAsync();
         Task<Movie> GetMovieByIdAsync(int id);
+        Task<Movie> InsertMovies(Movie movie);
         Task<Movie> UpdateMovieAsync(Movie movie);
         Task DeleteMovieAsync(int id);
     }

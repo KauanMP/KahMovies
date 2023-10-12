@@ -16,9 +16,9 @@ namespace WebUI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllMovies(Movie movie)
+        public async Task<IActionResult> GetAllMovies()
         {
-            return Ok(await repository.GetAllMoviesAsync(movie));
+            return Ok(await repository.GetAllMoviesAsync());
         }
     }
 }

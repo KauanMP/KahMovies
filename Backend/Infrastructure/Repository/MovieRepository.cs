@@ -18,12 +18,17 @@ namespace Infrastructure.Repository
             this.dbContext = dbContext;
         }
 
-        public async Task<IEnumerable<Movie>> GetAllMoviesAsync(Movie movie)
+        public async Task<IEnumerable<Movie>> GetAllMoviesAsync()
         {
             return await dbContext.Movies.AsNoTracking().ToListAsync();
         }
 
         public Task<Movie> GetMovieByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Movie> InsertMovies(Movie movie)
         {
             throw new NotImplementedException();
         }
@@ -37,5 +42,6 @@ namespace Infrastructure.Repository
         {
             throw new NotImplementedException();
         }
+
     }
 }

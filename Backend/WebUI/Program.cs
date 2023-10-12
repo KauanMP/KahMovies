@@ -1,8 +1,11 @@
-using Infrastructure.Persistence.Configurations;
+
+using WebUI.Config;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.MysqlConnectionContext(builder.Configuration);
+builder.Services.UseScopedConfiguration();
 builder.Services.UseAutoMapperConfiguration();
 
 builder.Services.AddControllers();
