@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "A3rrX8ZCboQl+/CsUTudDuWiaZoQTGiP6uBR9aUV0ATKxEK5HxAHtP+p5hD0KzXMjToKgaKrgYQwFA9Kivp7AQ==",
+  "dgSpecHash": "Az55NqoVE3bjzX6/AYlkdNN/Lc8yN7OyYSEK8PihKb2ZKhoFjsQgYes/Uy8WNaZz1CBNWRyBrrkUVEz647b71g==",
   "success": true,
   "projectFilePath": "C:\\Users\\kauan\\Área de Trabalho\\KahMovies\\Backend\\WebUI\\WebUI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\kauan\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
+    "C:\\Users\\kauan\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.0.1\\automapper.extensions.microsoft.dependencyinjection.8.0.1.nupkg.sha512",
+    "C:\\Users\\kauan\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\kauan\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.14\\microsoft.entityframeworkcore.6.0.14.nupkg.sha512",
     "C:\\Users\\kauan\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.14\\microsoft.entityframeworkcore.abstractions.6.0.14.nupkg.sha512",
     "C:\\Users\\kauan\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.14\\microsoft.entityframeworkcore.analyzers.6.0.14.nupkg.sha512",
@@ -27,6 +30,7 @@
     "C:\\Users\\kauan\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
     "C:\\Users\\kauan\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\kauan\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
+    "C:\\Users\\kauan\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\kauan\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
   "logs": []

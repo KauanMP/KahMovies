@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain.ModelViews.Author;
+using Domain.ModelViews.Category;
 
 namespace Domain.ModelViews.Movie
 {
@@ -15,5 +16,6 @@ namespace Domain.ModelViews.Movie
         public string Trailer { get; set; }
         public string Sinopse { get; set; }
         public ICollection<AuthorReference> Authors { get; set; }
+        public ICollection<CategoryReference> Categories { get; set; }
     }
 }

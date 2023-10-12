@@ -1,0 +1,15 @@
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Manager\bin\Debug\net6.0\Manager.deps.json
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Manager\bin\Debug\net6.0\Manager.dll
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Manager\bin\Debug\net6.0\Manager.pdb
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Manager\obj\Debug\net6.0\Manager.csproj.AssemblyReference.cache
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Manager\obj\Debug\net6.0\Manager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Manager\obj\Debug\net6.0\Manager.AssemblyInfoInputs.cache
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Manager\obj\Debug\net6.0\Manager.AssemblyInfo.cs
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Manager\obj\Debug\net6.0\Manager.csproj.CoreCompileInputs.cache
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Manager\obj\Debug\net6.0\Manager.dll
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Manager\obj\Debug\net6.0\refint\Manager.dll
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Manager\obj\Debug\net6.0\Manager.pdb
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Manager\obj\Debug\net6.0\ref\Manager.dll
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Manager\bin\Debug\net6.0\Domain.dll
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Manager\bin\Debug\net6.0\Domain.pdb
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Manager\obj\Debug\net6.0\Manager.csproj.CopyComplete
