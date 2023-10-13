@@ -6,12 +6,12 @@ using Domain.ModelViews;
 
 namespace Domain.Interfaces
 {
-    public interface IMovieViewManager
+    public interface IMovieManager
     {
-        Task<IEnumerable<MovieView>> GetAllMovieViewsAsync();
-        Task<MovieView> GetMovieViewByIdAsync(int id);
-        Task<MovieView> InsertMovieViews(MovieView MovieView);
-        Task<MovieView> UpdateMovieViewAsync(MovieView MovieView);
-        Task DeleteMovieViewAsync(int id);
+        Task<IEnumerable<MovieView>> GetAllMovieAsync();
+        Task<MovieView> GetMovieByIdAsync(int id);
+        Task<MovieView> InsertMovieV(MovieView MovieView);
+        Task<MovieView> UpdateMovieAsync(MovieView MovieView);
+        Task DeleteMovieAsync(int id);
     }
 }

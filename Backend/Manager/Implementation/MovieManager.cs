@@ -10,7 +10,7 @@ using Domain.ModelViews;
 
 namespace Manager.Implementation
 {
-    public class MovieManager : IMovieViewManager
+    public class MovieManager : IMovieManager
     {
         private readonly IMovieRepository repository;
         private readonly IMapper mapper;
@@ -21,27 +21,27 @@ namespace Manager.Implementation
             this.mapper = mapper;
         }
 
-        public async Task<IEnumerable<MovieView>> GetAllMovieViewsAsync()
+        public async Task<IEnumerable<MovieView>> GetAllMovieAsync()
         {
             return mapper.Map<IEnumerable<Movie>, IEnumerable<MovieView>>(await repository.GetAllMoviesAsync());
         }
 
-        public Task<MovieView> GetMovieViewByIdAsync(int id)
+        public Task<MovieView> GetMovieByIdAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<MovieView> InsertMovieViews(MovieView MovieView)
+        public Task<MovieView> InsertMovieV(MovieView MovieView)
         {
             throw new NotImplementedException();
         }
 
-        public Task<MovieView> UpdateMovieViewAsync(MovieView MovieView)
+        public Task<MovieView> UpdateMovieAsync(MovieView MovieView)
         {
             throw new NotImplementedException();
         }
 
-        public Task DeleteMovieViewAsync(int id)
+        public Task DeleteMovieAsync(int id)
         {
             throw new NotImplementedException();
         }
