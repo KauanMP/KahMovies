@@ -7,6 +7,7 @@ using AutoMapper;
 using Domain.Entities;
 using Domain.Interfaces;
 using Domain.ModelViews;
+using Domain.ModelViews.Movie;
 
 namespace Manager.Implementation
 {
@@ -21,7 +22,7 @@ namespace Manager.Implementation
             this.mapper = mapper;
         }
 
-        public async Task<IEnumerable<MovieView>> GetAllMovieAsync()
+        public async Task<IEnumerable<MovieView>> GetAllMoviesAsync()
         {
             return mapper.Map<IEnumerable<Movie>, IEnumerable<MovieView>>(await repository.GetAllMoviesAsync());
         }
@@ -31,12 +32,13 @@ namespace Manager.Implementation
             return mapper.Map<MovieView>(await repository.GetMovieByIdAsync(id));
         }
 
-        public Task<MovieView> InsertMovieV(MovieView MovieView)
+        public async Task<MovieView> InsertMovieAsync(NewMovie newMovie)
         {
-            throw new NotImplementedException();
+            var movie = mapper.Map<Movie>(newMovie);
+            return mapper.Map<MovieView>(await repository.InsertMoviesAsync(movie));
         }
 
-        public Task<MovieView> UpdateMovieAsync(MovieView MovieView)
+        public Task<MovieView> UpdateMovieAsync(MovieUpdate movieUpdate)
         {
             throw new NotImplementedException();
         }

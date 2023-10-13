@@ -29,12 +29,43 @@ namespace Infrastructure.Repository
 
         public async Task<Movie> GetMovieByIdAsync(int id)
         {
-            return await dbContext.Movies.AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
+            return await dbContext.Movies
+            .Include(p => p.Authors)
+            .Include(p => p.Categories)
+            .AsNoTracking()
+            .FirstOrDefaultAsync(p => p.Id == id);
         }
 
-        public Task<Movie> InsertMovies(Movie movie)
+        public async Task<Movie> InsertMoviesAsync(Movie movie)
         {
-            throw new NotImplementedException();
+            await InsertMovieAuthors(movie);
+            await InsertMovieCategories(movie);
+
+            await dbContext.Movies.AddAsync(movie);
+            await dbContext.SaveChangesAsync();
+            return movie;
+        }
+
+        private async Task InsertMovieAuthors(Movie movie)
+        {
+            var findAuthors = new List<Author>();
+            foreach (var Author in movie.Authors)
+            {
+                var findAuthor = await dbContext.Authors.FindAsync(Author.Id);
+                findAuthors.Add(findAuthor);
+            }
+            movie.Authors = findAuthors;
+        }
+
+        public async Task InsertMovieCategories(Movie movie)
+        {
+            var findCategories = new List<Category>();
+            foreach (var Categories in movie.Categories)
+            {
+                var findCategory = await dbContext.Categories.FindAsync(Categories.Id);
+                findCategories.Add(findCategory);
+            }
+            movie.Categories = findCategories;
         }
 
         public Task<Movie> UpdateMovieAsync(Movie movie)
