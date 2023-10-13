@@ -9,6 +9,6 @@ namespace Domain.Entities
     {
         public int Id { get; set; }
         public string AuthorName { get; set; }
-        public ICollection<Author> Authors { get; set; }
+        public ICollection<Movie> Movies { get; set; }
     }
 }

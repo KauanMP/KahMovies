@@ -26,9 +26,9 @@ namespace Manager.Implementation
             return mapper.Map<IEnumerable<Movie>, IEnumerable<MovieView>>(await repository.GetAllMoviesAsync());
         }
 
-        public Task<MovieView> GetMovieByIdAsync(int id)
+        public async Task<MovieView> GetMovieByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return mapper.Map<MovieView>(await repository.GetMovieByIdAsync(id));
         }
 
         public Task<MovieView> InsertMovieV(MovieView MovieView)

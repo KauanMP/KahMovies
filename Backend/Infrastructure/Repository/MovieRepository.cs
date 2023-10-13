@@ -20,12 +20,16 @@ namespace Infrastructure.Repository
 
         public async Task<IEnumerable<Movie>> GetAllMoviesAsync()
         {
-            return await dbContext.Movies.AsNoTracking().ToListAsync();
+            return await dbContext.Movies
+            .Include(p => p.Authors)
+            .Include(p => p.Categories)
+            .AsNoTracking()
+            .ToListAsync();
         }
 
-        public Task<Movie> GetMovieByIdAsync(int id)
+        public async Task<Movie> GetMovieByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await dbContext.Movies.AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public Task<Movie> InsertMovies(Movie movie)

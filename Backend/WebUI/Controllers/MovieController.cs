@@ -20,5 +20,11 @@ namespace WebUI.Controllers
         {
             return Ok(await repository.GetAllMoviesAsync());
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetMovieById(int id)
+        {
+            return Ok(await repository.GetMovieByIdAsync(id));
+        }
     }
 }

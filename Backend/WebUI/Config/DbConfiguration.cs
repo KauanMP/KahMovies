@@ -18,7 +18,7 @@ namespace WebUI.Config
         {
             var connectionString = config["mysqlconnection:connectionString"];
             var serverVersion = ServerVersion.AutoDetect(connectionString);
-            services.AddDbContext<ApplicationDbContext>(o => o.UseMySql(connectionString, serverVersion));
+            services.AddDbContext<ApplicationDbContext>(o => o.UseMySql(connectionString, serverVersion, b => b.MigrationsAssembly("WebUI")));
         }
 
         public static void UseScopedConfiguration(this IServiceCollection services)
