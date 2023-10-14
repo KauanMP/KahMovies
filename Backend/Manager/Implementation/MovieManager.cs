@@ -38,9 +38,10 @@ namespace Manager.Implementation
             return mapper.Map<MovieView>(await repository.InsertMoviesAsync(movie));
         }
 
-        public Task<MovieView> UpdateMovieAsync(MovieUpdate movieUpdate)
+        public async Task<MovieView> UpdateMovieAsync(MovieUpdate movieUpdate)
         {
-            throw new NotImplementedException();
+            var movie = mapper.Map<Movie>(movieUpdate);
+            return mapper.Map<MovieView>(await repository.UpdateMovieAsync(movie));
         }
 
         public Task DeleteMovieAsync(int id)

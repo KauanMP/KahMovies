@@ -31,7 +31,21 @@ namespace WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> InsertMovie(NewMovie newMovie)
         {
-            return Ok(await manager.InsertMovieAsync(newMovie));
+            var insertMovie = await manager.InsertMovieAsync(newMovie);
+            return CreatedAtAction(nameof(GetAllMovies), new { id = insertMovie.Id}, insertMovie);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateMovie(MovieUpdate movieUpdate)
+        {
+            var updatedMovie = await manager.UpdateMovieAsync(movieUpdate);
+
+            if (updatedMovie == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(updatedMovie);
         }
     }
 }

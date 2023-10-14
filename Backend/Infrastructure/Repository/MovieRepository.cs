@@ -68,9 +68,41 @@ namespace Infrastructure.Repository
             movie.Categories = findCategories;
         }
 
-        public Task<Movie> UpdateMovieAsync(Movie movie)
+        public async Task<Movie> UpdateMovieAsync(Movie movie)
         {
-            throw new NotImplementedException();
+            var findMovies = await dbContext.Movies.Include(p => p.Authors).Include(p => p.Categories).SingleOrDefaultAsync(p => p.Id == movie.Id);
+
+            if (findMovies == null)
+            {
+                return null;
+            }
+
+            dbContext.Entry(findMovies).CurrentValues.SetValues(movie);
+            await UpdateMovieAuthors(movie, findMovies);
+            await UpdateMovieCategories(movie, findMovies);
+
+            await dbContext.SaveChangesAsync();
+            return findMovies;
+        }
+
+        private async Task UpdateMovieAuthors(Movie movie, Movie findMovies)
+        {
+            findMovies.Authors.Clear();
+            foreach (var Author in movie.Authors)
+            {
+                var findAuthor = await dbContext.Authors.FindAsync(Author.Id);
+                findMovies.Authors.Add(findAuthor);
+            }
+        }
+
+        private async Task UpdateMovieCategories(Movie movie, Movie findMovies)
+        {
+            findMovies.Categories.Clear();
+            foreach (var Category in movie.Categories)
+            {
+                var findCategories = await dbContext.Categories.FindAsync(Category.Id);
+                findMovies.Categories.Add(findCategories);
+            }
         }
 
         public Task DeleteMovieAsync(int id)
