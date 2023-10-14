@@ -96,7 +96,9 @@ namespace WebUI.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("Title")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("Trailer")
                         .HasColumnType("longtext");
