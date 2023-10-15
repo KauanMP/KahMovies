@@ -8,7 +8,7 @@ namespace Manager.Interfaces.IRepository
 {
     public interface ICategoryRepository
     {
-        Task<IEnumerable<Category>> GetAllCategorysAsync();
+        Task<IEnumerable<Category>> GetAllCategoriesAsync();
         Task<Category> GetCategoryByIdAsync(int id);
         Task<Category> InsertCategoryAsync(Category category);
         Task<Category> UpdateCategoryAsync(Category category);

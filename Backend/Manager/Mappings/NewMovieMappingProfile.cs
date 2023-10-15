@@ -13,12 +13,6 @@ namespace Manager.Mappings
         {
             CreateMap<NewMovie, Movie>();
             CreateMap<Movie, MovieView>();
-            CreateMap<Author, AuthorReference>().ReverseMap();
-            CreateMap<Author, AuthorView>().ReverseMap();
-            CreateMap<Author, NewAuthor>().ReverseMap();
-            CreateMap<Category, CategoryReference>().ReverseMap();
-            CreateMap<Category, CategoryView>().ReverseMap();
-            CreateMap<Category, NewCategory>().ReverseMap();
             CreateMap<MovieUpdate, Movie>().ReverseMap();
         }
     }

@@ -3,25 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain.Entities;
+using Infrastructure.Persistence;
 using Manager.Interfaces.IRepository;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repository
 {
     public class CategoryRepository : ICategoryRepository
     {
-        public Task<Category> DeleteCategoryAsync(int id)
+        private readonly ApplicationDbContext dbContext;
+
+        public CategoryRepository(ApplicationDbContext dbContext)
         {
-            throw new NotImplementedException();
+            this.dbContext = dbContext;
         }
 
-        public Task<IEnumerable<Category>> GetAllCategorysAsync()
+        public async Task<IEnumerable<Category>> GetAllCategoriesAsync()
         {
-            throw new NotImplementedException();
+            return await dbContext.Categories.AsNoTracking().ToListAsync();
         }
 
-        public Task<Category> GetCategoryByIdAsync(int id)
+        public async Task<Category> GetCategoryByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await dbContext.Categories.SingleOrDefaultAsync(p => p.Id == id);
         }
 
         public Task<Category> InsertCategoryAsync(Category category)
@@ -30,6 +34,11 @@ namespace Infrastructure.Repository
         }
 
         public Task<Category> UpdateCategoryAsync(Category category)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Category> DeleteCategoryAsync(int id)
         {
             throw new NotImplementedException();
         }

@@ -3,33 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain.Entities;
+using Infrastructure.Persistence;
 using Manager.Interfaces.IRepository;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repository
 {
     public class AuthorRepository : IAuthorRepository
     {
-        public Task<Author> DeleteCategoryAsync(int id)
+        private readonly ApplicationDbContext dbContext;
+
+        public AuthorRepository(ApplicationDbContext dbContext)
+        {
+            this.dbContext = dbContext;
+        }
+
+        public async Task<IEnumerable<Author>> GetAllAuthorsAsync()
+        {
+            return await dbContext.Authors.AsNoTracking().ToListAsync();
+        }
+
+        public async Task<Author> GetAuthorByIdAsync(int id)
+        {
+            return await dbContext.Authors.SingleOrDefaultAsync(p => p.Id == id);
+        }
+
+        public Task<Author> InsertAuthorAsync(Author author)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Author>> GetAllCategorysAsync()
+        public Task<Author> UpdateAuthorAsync(Author author)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Author> GetCategoryByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Author> InsertCategoryAsync(Author author)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Author> UpdateCategoryAsync(Author author)
+        public Task<Author> DeleteAuthorAsync(int id)
         {
             throw new NotImplementedException();
         }

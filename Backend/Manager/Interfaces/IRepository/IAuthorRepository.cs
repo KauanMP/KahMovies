@@ -8,10 +8,10 @@ namespace Manager.Interfaces.IRepository
 {
     public interface IAuthorRepository
     {
-        Task<IEnumerable<Author>> GetAllCategorysAsync();
-        Task<Author> GetCategoryByIdAsync(int id);
-        Task<Author> InsertCategoryAsync(Author author);
-        Task<Author> UpdateCategoryAsync(Author author);
-        Task<Author> DeleteCategoryAsync(int id);
+        Task<IEnumerable<Author>> GetAllAuthorsAsync();
+        Task<Author> GetAuthorByIdAsync(int id);
+        Task<Author> InsertAuthorAsync(Author author);
+        Task<Author> UpdateAuthorAsync(Author author);
+        Task<Author> DeleteAuthorAsync(int id);
     }
 }

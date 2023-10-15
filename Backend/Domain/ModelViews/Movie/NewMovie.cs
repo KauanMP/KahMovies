@@ -30,11 +30,7 @@ namespace Domain.ModelViews.Movie
         public string Trailer { get; set; }
 
         public string Sinopse { get; set; }
-
-  
         public ICollection<AuthorReference> Authors { get; set; }
-
-
         public ICollection<CategoryReference> Categories { get; set; }
     }
 }
