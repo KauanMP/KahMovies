@@ -13,6 +13,6 @@ namespace Domain.Interfaces
         Task<Movie> GetMovieByIdAsync(int id);
         Task<Movie> InsertMoviesAsync(Movie movie);
         Task<Movie> UpdateMovieAsync(Movie movie);
-        Task DeleteMovieAsync(int id);
+        Task<Movie> DeleteMovieAsync(int id);
     }
 }

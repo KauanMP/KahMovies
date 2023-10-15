@@ -33,7 +33,7 @@ namespace Infrastructure.Repository
             .Include(p => p.Authors)
             .Include(p => p.Categories)
             .AsNoTracking()
-            .FirstOrDefaultAsync(p => p.Id == id);
+            .SingleOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task<Movie> InsertMoviesAsync(Movie movie)
@@ -105,9 +105,19 @@ namespace Infrastructure.Repository
             }
         }
 
-        public Task DeleteMovieAsync(int id)
+        public async Task<Movie> DeleteMovieAsync(int id)
         {
-            throw new NotImplementedException();
+            var findMovies = await dbContext.Movies.FindAsync(id);
+
+            if (findMovies == null)
+            {
+                return null;
+            }
+
+            var removeMovie = dbContext.Movies.Remove(findMovies);
+            await dbContext.SaveChangesAsync();
+            
+            return removeMovie.Entity;
         }
 
     }
