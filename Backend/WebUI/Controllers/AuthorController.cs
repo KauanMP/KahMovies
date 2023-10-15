@@ -27,5 +27,10 @@ namespace WebUI.Controllers
             return await manager.GetAllAuthorsAsync();
         }
 
+        [HttpGet("{id}")]
+        public async Task<AuthorView> GetAuthorByIdAsync(int id)
+        {
+            return await manager.GetAuthorByIdAsync(id);
+        }
     }
 }

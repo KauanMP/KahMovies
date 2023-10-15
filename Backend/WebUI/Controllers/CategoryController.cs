@@ -26,5 +26,11 @@ namespace WebUI.Controllers
         {
             return await manager.GetAllCategoriesAsync();
         }
+
+        [HttpGet("{id}")]
+        public async Task<CategoryView> GetAuthorByIdAsync(int id)
+        {
+            return await manager.GetCategoryByIdAsync(id);
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Domain.Entities;
 using Domain.ModelViews.Author;
 using Manager.Interfaces.IManager;
 using Manager.Interfaces.IRepository;
@@ -22,12 +23,12 @@ namespace Manager.Implementation
 
         public async Task<IEnumerable<AuthorView>> GetAllAuthorsAsync()
         {
-            return mapper.Map<IEnumerable<AuthorView>>(await repository.GetAllAuthorsAsync());
+            return mapper.Map<IEnumerable<Author>, IEnumerable<AuthorView>>(await repository.GetAllAuthorsAsync());
         }
 
-        public Task<AuthorView> GetAuthorByIdAsync(int id)
+        public async Task<AuthorView> GetAuthorByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return mapper.Map<AuthorView>(await repository.GetAuthorByIdAsync(id));
         }
 
         public Task<AuthorView> InsertAuthorAsync(NewAuthor newAuthor)

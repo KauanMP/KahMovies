@@ -26,9 +26,9 @@ namespace Manager.Implementation
             return mapper.Map<IEnumerable<Category>, IEnumerable<CategoryView>>(await repository.GetAllCategoriesAsync());
         }
 
-        public Task<CategoryView> GetCategoryByIdAsync(int id)
+        public async Task<CategoryView> GetCategoryByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return mapper.Map<CategoryView>(await repository.GetCategoryByIdAsync(id));
         }
 
         public Task<CategoryView> InsertCategoryAsync(NewCategory newCategory)
