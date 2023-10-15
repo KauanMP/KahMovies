@@ -22,15 +22,22 @@ namespace WebUI.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<CategoryView>> GetAllCategoriesAsync()
+        public async Task<IActionResult> GetAllCategories()
         {
-            return await manager.GetAllCategoriesAsync();
+            return Ok(await manager.GetAllCategoriesAsync());
         }
 
         [HttpGet("{id}")]
-        public async Task<CategoryView> GetAuthorByIdAsync(int id)
+        public async Task<IActionResult> GetAuthorById(int id)
         {
-            return await manager.GetCategoryByIdAsync(id);
+            return Ok(await manager.GetCategoryByIdAsync(id));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> InsertCategory(NewCategory newCategory)
+        {
+            var insertCategory = await manager.InsertCategoryAsync(newCategory);
+            return CreatedAtAction(nameof(GetAllCategories), new {id = insertCategory.Id}, insertCategory);
         }
     }
 }

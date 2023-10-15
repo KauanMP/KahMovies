@@ -28,9 +28,12 @@ namespace Infrastructure.Repository
             return await dbContext.Categories.SingleOrDefaultAsync(p => p.Id == id);
         }
 
-        public Task<Category> InsertCategoryAsync(Category category)
+        public async Task<Category> InsertCategoryAsync(Category category)
         {
-            throw new NotImplementedException();
+            await dbContext.AddAsync(category);
+            await dbContext.SaveChangesAsync();
+
+            return category;
         }
 
         public Task<Category> UpdateCategoryAsync(Category category)

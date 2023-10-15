@@ -28,9 +28,12 @@ namespace Infrastructure.Repository
             return await dbContext.Authors.SingleOrDefaultAsync(p => p.Id == id);
         }
 
-        public Task<Author> InsertAuthorAsync(Author author)
+        public async Task<Author> InsertAuthorAsync(Author author)
         {
-            throw new NotImplementedException();
+            await dbContext.AddAsync(author);
+            await dbContext.SaveChangesAsync();
+
+            return author;
         }
 
         public Task<Author> UpdateAuthorAsync(Author author)

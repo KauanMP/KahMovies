@@ -31,9 +31,10 @@ namespace Manager.Implementation
             return mapper.Map<CategoryView>(await repository.GetCategoryByIdAsync(id));
         }
 
-        public Task<CategoryView> InsertCategoryAsync(NewCategory newCategory)
+        public async Task<CategoryView> InsertCategoryAsync(NewCategory newCategory)
         {
-            throw new NotImplementedException();
+            var findCategory = mapper.Map<Category>(newCategory);
+            return mapper.Map<CategoryView>(await repository.InsertCategoryAsync(findCategory));
         }
 
         public Task<CategoryView> UpdateCategoryAsync(CategoryUpdate categoryUpdate)

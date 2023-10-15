@@ -22,15 +22,22 @@ namespace WebUI.Controllers
         }
         
         [HttpGet]
-        public async Task<IEnumerable<AuthorView>> GetAllAuthorsAsync()
+        public async Task<IActionResult> GetAllAuthors()
         {
-            return await manager.GetAllAuthorsAsync();
+            return Ok(await manager.GetAllAuthorsAsync());
         }
 
         [HttpGet("{id}")]
-        public async Task<AuthorView> GetAuthorByIdAsync(int id)
+        public async Task<IActionResult> GetAuthorById(int id)
         {
-            return await manager.GetAuthorByIdAsync(id);
+            return Ok(await manager.GetAuthorByIdAsync(id));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> InsertAuthors(NewAuthor newAuthor)
+        {
+            var insertAuthor = await manager.InsertAuthorAsync(newAuthor);
+            return CreatedAtAction(nameof(GetAllAuthors), new {id = insertAuthor.Id}, insertAuthor);
         }
     }
 }
