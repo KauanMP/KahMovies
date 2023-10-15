@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain.Entities;
+using Domain.ModelViews.Category;
+using Manager.Interfaces.IManager;
 using Manager.Interfaces.IRepository;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,17 +14,17 @@ namespace WebUI.Controllers
     [Route("api/[controller]")]
     public class CategoryController : ControllerBase
     {
-        private readonly ICategoryRepository repository;
+        private readonly ICategoryManager manager;
 
-        public CategoryController(ICategoryRepository repository)
+        public CategoryController(ICategoryManager manager)
         {
-            this.repository = repository;
+            this.manager = manager;
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Category>> GetAllCategoriesAsync()
+        public async Task<IEnumerable<CategoryView>> GetAllCategoriesAsync()
         {
-            return await repository.GetAllCategoriesAsync();
+            return await manager.GetAllCategoriesAsync();
         }
     }
 }

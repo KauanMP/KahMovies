@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain.Entities;
+using Domain.ModelViews.Author;
+using Manager.Interfaces.IManager;
 using Manager.Interfaces.IRepository;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,17 +14,17 @@ namespace WebUI.Controllers
     [Route("api/[controller]")]
     public class AuthorController : ControllerBase
     {
-        private readonly IAuthorRepository repository;
+        private readonly IAuthorManager manager;
 
-        public AuthorController(IAuthorRepository repository)
+        public AuthorController(IAuthorManager manager)
         {
-            this.repository = repository;
+            this.manager = manager;
         }
         
         [HttpGet]
-        public async Task<IEnumerable<Author>> GetAllAuthorsAsync()
+        public async Task<IEnumerable<AuthorView>> GetAllAuthorsAsync()
         {
-            return await repository.GetAllAuthorsAsync();
+            return await manager.GetAllAuthorsAsync();
         }
 
     }

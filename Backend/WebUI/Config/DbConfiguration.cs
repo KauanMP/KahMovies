@@ -7,6 +7,8 @@ using Domain.Interfaces;
 using Infrastructure.Persistence;
 using Infrastructure.Repository;
 using Manager.Implementation;
+using Manager.Interfaces.IManager;
+using Manager.Interfaces.IRepository;
 using Manager.Mappings;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,12 +26,18 @@ namespace WebUI.Config
         public static void UseScopedConfiguration(this IServiceCollection services)
         {
             services.AddScoped<IMovieRepository, MovieRepository>();
+            services.AddScoped<IAuthorRepository, AuthorRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IMovieManager, MovieManager>();
+            services.AddScoped<IAuthorManager, AuthorManager>();
+            services.AddScoped<ICategoryManager, CategoryManager>();
         }
 
         public static void UseAutoMapperConfiguration(this IServiceCollection services)
         {
             services.AddAutoMapper(typeof(NewMovieMappingProfile));
+            services.AddAutoMapper(typeof(NewAuthorMappingProfile));
+            services.AddAutoMapper(typeof(NewCategoryMappingProfile));
         }
 
     }

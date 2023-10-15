@@ -8,10 +8,10 @@ namespace Manager.Interfaces.IManager
 {
     public interface ICategoryManager
     {
-        Task<IEnumerable<NewCategory>> GetAllCategoriesAsync();
-        Task<NewCategory> GetCategoryByIdAsync(int id);
-        Task<NewCategory> InsertCategoryAsync(NewCategory newCategory);
-        Task<NewCategory> UpdateCategoryAsync(CategoryUpdate categoryUpdate);
+        Task<IEnumerable<CategoryView>> GetAllCategoriesAsync();
+        Task<CategoryView> GetCategoryByIdAsync(int id);
+        Task<CategoryView> InsertCategoryAsync(NewCategory newCategory);
+        Task<CategoryView> UpdateCategoryAsync(CategoryUpdate categoryUpdate);
         Task DeleteCategoryAsync(int id);
     }
 }

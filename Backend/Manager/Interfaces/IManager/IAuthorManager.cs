@@ -12,6 +12,6 @@ namespace Manager.Interfaces.IManager
         Task<AuthorView> GetAuthorByIdAsync(int id);
         Task<AuthorView> InsertAuthorAsync(NewAuthor newAuthor);
         Task<AuthorView> UpdateAuthorAsync(AuthorUpdate authorUpdate);
-        Task<AuthorView> DeleteAuthorAsync(int id);
+        Task DeleteAuthorAsync(int id);
     }
 }
