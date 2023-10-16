@@ -36,14 +36,27 @@ namespace Infrastructure.Repository
             return author;
         }
 
-        public Task<Author> UpdateAuthorAsync(Author author)
+        public async Task<Author> UpdateAuthorAsync(Author author)
         {
-            throw new NotImplementedException();
+            var findAuthors = await dbContext.Authors.FindAsync(author.Id);
+
+            if (findAuthors == null)
+            {
+                return null;
+            }
+
+            dbContext.Entry(findAuthors).CurrentValues.SetValues(author);
+            await dbContext.SaveChangesAsync();
+
+            return author;
         }
 
-        public Task<Author> DeleteAuthorAsync(int id)
+        public async Task DeleteAuthorAsync(int id)
         {
-            throw new NotImplementedException();
+            var findAuthors = await dbContext.Authors.FindAsync(id);
+
+            dbContext.Authors.Remove(findAuthors);
+            await dbContext.SaveChangesAsync();
         }
     }
 }

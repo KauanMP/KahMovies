@@ -34,10 +34,30 @@ namespace WebUI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> InsertAuthors(NewAuthor newAuthor)
+        public async Task<IActionResult> InsertAuthor(NewAuthor newAuthor)
         {
             var insertAuthor = await manager.InsertAuthorAsync(newAuthor);
             return CreatedAtAction(nameof(GetAllAuthors), new {id = insertAuthor.Id}, insertAuthor);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateAuthor(AuthorUpdate authorUpdate)
+        {
+            var updateAuthor = await manager.UpdateAuthorAsync(authorUpdate);
+
+            if(authorUpdate == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(updateAuthor);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteAuthor(int id)
+        {
+            await manager.DeleteAuthorAsync(id);
+            return NoContent();
         }
     }
 }

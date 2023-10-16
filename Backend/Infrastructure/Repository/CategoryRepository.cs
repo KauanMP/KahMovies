@@ -41,7 +41,7 @@ namespace Infrastructure.Repository
             throw new NotImplementedException();
         }
 
-        public Task<Category> DeleteCategoryAsync(int id)
+        public Task DeleteCategoryAsync(int id)
         {
             throw new NotImplementedException();
         }

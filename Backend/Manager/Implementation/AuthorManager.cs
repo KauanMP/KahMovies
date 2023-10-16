@@ -37,14 +37,15 @@ namespace Manager.Implementation
             return mapper.Map<AuthorView>(await repository.InsertAuthorAsync(findAuthor));
         }
 
-        public Task<AuthorView> UpdateAuthorAsync(AuthorUpdate authorUpdate)
+        public async Task<AuthorView> UpdateAuthorAsync(AuthorUpdate authorUpdate)
         {
-            throw new NotImplementedException();
+            var findAuthor = mapper.Map<Author>(authorUpdate);
+            return mapper.Map<AuthorView>(await repository.UpdateAuthorAsync(findAuthor));
         }
 
-        public Task DeleteAuthorAsync(int id)
+        public async Task DeleteAuthorAsync(int id)
         {
-            throw new NotImplementedException();
+            await repository.DeleteAuthorAsync(id);
         }
     }
 }

@@ -12,6 +12,6 @@ namespace Manager.Interfaces.IRepository
         Task<Author> GetAuthorByIdAsync(int id);
         Task<Author> InsertAuthorAsync(Author author);
         Task<Author> UpdateAuthorAsync(Author author);
-        Task<Author> DeleteAuthorAsync(int id);
+        Task DeleteAuthorAsync(int id);
     }
 }
