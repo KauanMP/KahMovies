@@ -37,14 +37,15 @@ namespace Manager.Implementation
             return mapper.Map<CategoryView>(await repository.InsertCategoryAsync(findCategory));
         }
 
-        public Task<CategoryView> UpdateCategoryAsync(CategoryUpdate categoryUpdate)
+        public async Task<CategoryView> UpdateCategoryAsync(CategoryUpdate categoryUpdate)
         {
-            throw new NotImplementedException();
+            var findCategory = mapper.Map<Category>(categoryUpdate);
+            return mapper.Map<CategoryView>(await repository.UpdateCategoryAsync(findCategory));
         }
 
-        public Task DeleteCategoryAsync(int id)
+        public async Task DeleteCategoryAsync(int id)
         {
-            throw new NotImplementedException();
+            await repository.DeleteCategoryAsync(id);
         }
     }
 }

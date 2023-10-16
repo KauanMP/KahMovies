@@ -48,7 +48,7 @@ namespace WebUI.Controllers
             return Ok(updatedMovie);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMovie(int id)
         {
             await manager.DeleteMovieAsync(id);

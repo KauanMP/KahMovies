@@ -36,14 +36,26 @@ namespace Infrastructure.Repository
             return category;
         }
 
-        public Task<Category> UpdateCategoryAsync(Category category)
+        public async Task<Category> UpdateCategoryAsync(Category category)
         {
-            throw new NotImplementedException();
+            var updateCategory = await dbContext.Categories.FindAsync(category.Id);
+
+            if (updateCategory == null)
+            {
+                return null;
+            }
+
+            dbContext.Entry(updateCategory).CurrentValues.SetValues(category);
+            await dbContext.SaveChangesAsync();
+            return category;
         }
 
-        public Task DeleteCategoryAsync(int id)
+        public async Task DeleteCategoryAsync(int id)
         {
-            throw new NotImplementedException();
+            var deleteCategory = await dbContext.Categories.FirstOrDefaultAsync(p => p.Id == id);
+
+            dbContext.Remove(deleteCategory);
+            await dbContext.SaveChangesAsync();
         }
     }
 }

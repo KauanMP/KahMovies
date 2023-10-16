@@ -39,5 +39,25 @@ namespace WebUI.Controllers
             var insertCategory = await manager.InsertCategoryAsync(newCategory);
             return CreatedAtAction(nameof(GetAllCategories), new {id = insertCategory.Id}, insertCategory);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateCategory(CategoryUpdate categoryUpdate)
+        {
+            var updateCategory = await manager.UpdateCategoryAsync(categoryUpdate);
+
+            if (updateCategory == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(categoryUpdate);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCategory(int id)
+        {
+            await manager.DeleteCategoryAsync(id);
+            return NoContent();
+        }
     }
 }

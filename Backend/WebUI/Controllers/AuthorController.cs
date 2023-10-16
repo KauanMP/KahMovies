@@ -53,7 +53,7 @@ namespace WebUI.Controllers
             return Ok(updateAuthor);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAuthor(int id)
         {
             await manager.DeleteAuthorAsync(id);
