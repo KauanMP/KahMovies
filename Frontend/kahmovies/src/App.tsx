@@ -11,7 +11,7 @@ function App() {
         <Navbar />
         <div className="container">
           <Routes>
-            <Route path="/" Component={<Home />} />
+            <Route path="/" element={<Home />} />
           </Routes>
         </div>
         <Footer />
