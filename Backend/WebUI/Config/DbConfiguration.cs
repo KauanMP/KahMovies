@@ -16,6 +16,19 @@ namespace WebUI.Config
 {
     public static class DbConfiguration
     {
+        public static void ConfigureCors(this IServiceCollection services)
+        {
+            services.AddCors(o =>
+            {
+                o.AddPolicy("CorsPolicy",
+                builder => builder
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowAnyOrigin()
+                );
+            });
+        }
+
         public static void MysqlConnectionContext(this IServiceCollection services, IConfiguration config)
         {
             var connectionString = config["mysqlconnection:connectionString"];
