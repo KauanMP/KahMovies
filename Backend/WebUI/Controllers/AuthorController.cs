@@ -22,26 +22,26 @@ namespace WebUI.Controllers
         }
         
         [HttpGet]
-        public async Task<IActionResult> GetAllAuthors()
+        public async Task<IActionResult> GetAll()
         {
             return Ok(await manager.GetAllAuthorsAsync());
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetAuthorById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
             return Ok(await manager.GetAuthorByIdAsync(id));
         }
 
         [HttpPost]
-        public async Task<IActionResult> InsertAuthor(NewAuthor newAuthor)
+        public async Task<IActionResult> Post(NewAuthor newAuthor)
         {
             var insertAuthor = await manager.InsertAuthorAsync(newAuthor);
-            return CreatedAtAction(nameof(GetAllAuthors), new {id = insertAuthor.Id}, insertAuthor);
+            return CreatedAtAction(nameof(GetAll), new {id = insertAuthor.Id}, insertAuthor);
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateAuthor(AuthorUpdate authorUpdate)
+        public async Task<IActionResult> Put(AuthorUpdate authorUpdate)
         {
             var updateAuthor = await manager.UpdateAuthorAsync(authorUpdate);
 
@@ -54,7 +54,7 @@ namespace WebUI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAuthor(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             await manager.DeleteAuthorAsync(id);
             return NoContent();

@@ -22,26 +22,26 @@ namespace WebUI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllCategories()
+        public async Task<IActionResult> GetAll()
         {
             return Ok(await manager.GetAllCategoriesAsync());
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetAuthorById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
             return Ok(await manager.GetCategoryByIdAsync(id));
         }
 
         [HttpPost]
-        public async Task<IActionResult> InsertCategory(NewCategory newCategory)
+        public async Task<IActionResult> Post(NewCategory newCategory)
         {
             var insertCategory = await manager.InsertCategoryAsync(newCategory);
-            return CreatedAtAction(nameof(GetAllCategories), new {id = insertCategory.Id}, insertCategory);
+            return CreatedAtAction(nameof(GetAll), new {id = insertCategory.Id}, insertCategory);
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateCategory(CategoryUpdate categoryUpdate)
+        public async Task<IActionResult> Put(CategoryUpdate categoryUpdate)
         {
             var updateCategory = await manager.UpdateCategoryAsync(categoryUpdate);
 
@@ -54,7 +54,7 @@ namespace WebUI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCategory(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             await manager.DeleteCategoryAsync(id);
             return NoContent();

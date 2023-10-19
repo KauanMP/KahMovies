@@ -17,26 +17,26 @@ namespace WebUI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllMovies()
+        public async Task<IActionResult> GetAll()
         {
             return Ok(await manager.GetAllMoviesAsync());
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetMovieById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
             return Ok(await manager.GetMovieByIdAsync(id));
         }
 
         [HttpPost]
-        public async Task<IActionResult> InsertMovie(NewMovie newMovie)
+        public async Task<IActionResult> Post(NewMovie newMovie)
         {
             var insertMovie = await manager.InsertMovieAsync(newMovie);
-            return CreatedAtAction(nameof(GetAllMovies), new { id = insertMovie.Id}, insertMovie);
+            return CreatedAtAction(nameof(GetAll), new { id = insertMovie.Id}, insertMovie);
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateMovie(MovieUpdate movieUpdate)
+        public async Task<IActionResult> Put(MovieUpdate movieUpdate)
         {
             var updatedMovie = await manager.UpdateMovieAsync(movieUpdate);
 
@@ -49,7 +49,7 @@ namespace WebUI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteMovie(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             await manager.DeleteMovieAsync(id);
             return NoContent();
