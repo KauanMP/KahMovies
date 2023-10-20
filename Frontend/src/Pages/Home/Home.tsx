@@ -5,9 +5,9 @@ import Carousel from "../../components/Carousel/Carousel";
 
 const Home = () => {
   return (
-    <div>
+    <div style={{ paddingBottom: "2rem" }}>
       <Box>
-        <Typography level="h2">home</Typography>
+        <Typography level="h2" textColor="common.white">home</Typography>
       </Box>
       <Search />
       <Box

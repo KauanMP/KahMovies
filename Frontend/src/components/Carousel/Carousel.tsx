@@ -2,8 +2,23 @@ import "./Carousel.css";
 import { MdArrowForwardIos, MdArrowBackIos } from "react-icons/md";
 import { Box } from "@mui/joy";
 import { Typography } from "@mui/joy";
+import axios from "axios";
+import { useQuery } from "react-query";
 
 const Carousel = () => {
+  const { data, isLoading } = useQuery("movies", () => {
+    return axios
+      .get("https://localhost:7120/api/Movie")
+      .then((res) => res.data);
+  });
+
+  if (isLoading) {
+    return <div>Carregando...</div>;
+  }
+  
+
+
+
   return (
     <Box>
       <Box
@@ -11,7 +26,9 @@ const Carousel = () => {
         justifyContent={"space-between"}
         alignItems={"center"}
       >
-        <Typography level="h1">Terror</Typography>
+        <Typography level="h1" textColor="common.white">
+          Terror
+        </Typography>
         <Box>
           <Box
             component="button"
@@ -29,95 +46,39 @@ const Carousel = () => {
           </Box>
         </Box>
       </Box>
-      <Box display={"flex"} overflow={"auto"} gap={2}>
-        <Box width={"200px"} height={"320px"} flex={"none"}>
-          <Box>
-            <Box
-              component="img"
-              borderRadius={10}
-              sx={{ width: "100%", height: "100%", objectFit: "cover" }}
-              src="https://media.filmelier.com/tit/reYscQ/poster/fale-comigo_NOki3T8.jpeg"
-              alt="#"
-            />
+      <Box display={"flex"} overflow={"auto"} gap={1}>
+        {data.map((movie: { image: string | undefined; title: string | undefined; }) => (
+          <Box flex={"none"}>
+            <Box>
+              <Box
+                component="img"
+                borderRadius={10}
+                sx={{
+                  width: "150px",
+                  height: "260px",
+                }}
+                src={movie.image}
+                alt={movie.title}
+              />
+            </Box>
           </Box>
-        </Box>
-        <Box width={"200px"} height={"320px"} flex={"none"}>
-          <Box>
-            <Box
-              component="img"
-              borderRadius={10}
-              sx={{ width: "100%", height: "100%", objectFit: "cover" }}
-              src="https://media.filmelier.com/tit/reYscQ/poster/fale-comigo_NOki3T8.jpeg"
-              alt="#"
-            />
+        ))}
+        {data.map((movie: { image: string | undefined; title: string | undefined; }) => (
+          <Box flex={"none"}>
+            <Box>
+              <Box
+                component="img"
+                borderRadius={10}
+                sx={{
+                  width: "150px",
+                  height: "260px",
+                }}
+                src={movie.image}
+                alt={movie.title}
+              />
+            </Box>
           </Box>
-        </Box>
-        <Box width={"200px"} height={"320px"} flex={"none"}>
-          <Box>
-            <Box
-              component="img"
-              borderRadius={10}
-              sx={{ width: "100%", height: "100%", objectFit: "cover" }}
-              src="https://media.filmelier.com/tit/reYscQ/poster/fale-comigo_NOki3T8.jpeg"
-              alt="#"
-            />
-          </Box>
-        </Box>
-        <Box width={"200px"} height={"320px"} flex={"none"}>
-          <Box>
-            <Box
-              component="img"
-              borderRadius={10}
-              sx={{ width: "100%", height: "100%", objectFit: "cover" }}
-              src="https://media.filmelier.com/tit/reYscQ/poster/fale-comigo_NOki3T8.jpeg"
-              alt="#"
-            />
-          </Box>
-        </Box>
-        <Box width={"200px"} height={"320px"} flex={"none"}>
-          <Box>
-            <Box
-              component="img"
-              borderRadius={10}
-              sx={{ width: "100%", height: "100%", objectFit: "cover" }}
-              src="https://media.filmelier.com/tit/reYscQ/poster/fale-comigo_NOki3T8.jpeg"
-              alt="#"
-            />
-          </Box>
-        </Box>
-        <Box width={"200px"} height={"320px"} flex={"none"}>
-          <Box>
-            <Box
-              component="img"
-              borderRadius={10}
-              sx={{ width: "100%", height: "100%", objectFit: "cover" }}
-              src="https://media.filmelier.com/tit/reYscQ/poster/fale-comigo_NOki3T8.jpeg"
-              alt="#"
-            />
-          </Box>
-        </Box>
-        <Box width={"200px"} height={"320px"} flex={"none"}>
-          <Box>
-            <Box
-              component="img"
-              borderRadius={10}
-              sx={{ width: "100%", height: "100%", objectFit: "cover" }}
-              src="https://media.filmelier.com/tit/reYscQ/poster/fale-comigo_NOki3T8.jpeg"
-              alt="#"
-            />
-          </Box>
-        </Box>
-        <Box width={"200px"} height={"320px"} flex={"none"}>
-          <Box>
-            <Box
-              component="img"
-              borderRadius={10}
-              sx={{ width: "100%", height: "100%", objectFit: "cover" }}
-              src="https://media.filmelier.com/tit/reYscQ/poster/fale-comigo_NOki3T8.jpeg"
-              alt="#"
-            />
-          </Box>
-        </Box>
+        ))}
       </Box>
     </Box>
   );
