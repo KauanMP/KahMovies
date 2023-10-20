@@ -8,10 +8,10 @@ namespace Manager.Interfaces.IRepository
 {
     public interface IUserRepository
     {
-        List<IEnumerable<User>> GetAllUsersAsync();
-        List<User> GetUserByIdAsync(int id);
-        List<User> InsertUserAsync(User user);
-        List<User> UpdateUserAsync(User user);
-        List<User> DeleteUserAsync(int id);
+        Task<IEnumerable<User>> GetAllUsersAsync();
+        Task<User> GetUserByIdAsync(string email);
+        Task<User> InsertUserAsync(User user);
+        Task<User> UpdateUserAsync(User user);
+        Task DeleteUserAsync(string email);
     }
 }

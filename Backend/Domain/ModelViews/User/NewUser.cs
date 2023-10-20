@@ -8,7 +8,6 @@ namespace Domain.ModelViews.User
 {
     public class NewUser
     {
-        [EmailAddress]
         public string Email { get; set; }
         public string Password { get; set; }
     }

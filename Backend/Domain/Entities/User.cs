@@ -8,6 +8,7 @@ namespace Domain.Entities
 {
     public class User
     {
+        [Key]
         [EmailAddress]
         public string Email { get; set; }
         public string Password { get; set; }
