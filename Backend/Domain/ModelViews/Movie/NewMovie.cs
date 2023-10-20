@@ -26,6 +26,8 @@ namespace Domain.ModelViews.Movie
         [Range(1, 18, ErrorMessage = "O tempo de duração deve ser maior que zero")]
         public int Classification { get; set; }
 
+        public string Image { get; set; }
+        
         [Url(ErrorMessage = "A URL é invalida")]
         public string Trailer { get; set; }
 

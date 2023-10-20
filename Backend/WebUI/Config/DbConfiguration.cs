@@ -44,6 +44,7 @@ namespace WebUI.Config
             services.AddScoped<IMovieManager, MovieManager>();
             services.AddScoped<IAuthorManager, AuthorManager>();
             services.AddScoped<ICategoryManager, CategoryManager>();
+            services.AddScoped<IUserRepository, UserRepository>();
         }
 
         public static void UseAutoMapperConfiguration(this IServiceCollection services)
@@ -51,6 +52,7 @@ namespace WebUI.Config
             services.AddAutoMapper(typeof(NewMovieMappingProfile));
             services.AddAutoMapper(typeof(NewAuthorMappingProfile));
             services.AddAutoMapper(typeof(NewCategoryMappingProfile));
+            services.AddAutoMapper(typeof(NewLoginMappingProfile));
         }
 
     }

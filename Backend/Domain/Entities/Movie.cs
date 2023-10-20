@@ -13,6 +13,7 @@ namespace Domain.Entities
         public DateTime ReleaseYear { get; set; }
         public int Duration { get; set; }
         public int Classification { get; set; }
+        public string Image { get; set; }
         public string Trailer { get; set; }
         public string Sinopse { get; set; }
         public ICollection<Author> Authors { get; set; }
