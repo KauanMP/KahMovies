@@ -21,11 +21,11 @@ const Carousel = ({ children, gender } : Props) => {
     dots: false,
     centerMode: false,
     arrows: false,
-    infinite: true,
+    infinite: false,
 
     adaptiveHeight: true,
     variableWidth: true,
-    slidesToShow: 7,
+    slidesToShow: 3,
     slidesToScroll: 1,
     speed: 200,
   };
@@ -49,7 +49,7 @@ const Carousel = ({ children, gender } : Props) => {
   };
 
   return (
-    <Box margin={"0 auto"}>
+    <Box margin={"0 auto"} py={2}>
       <Box
         display={"flex"}
         justifyContent={"space-between"}

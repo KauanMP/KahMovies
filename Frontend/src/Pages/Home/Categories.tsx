@@ -19,7 +19,7 @@ const Categories = () => {
       margin={"0 auto"}
       width={"500px"}
       flexWrap={"wrap"}
-      py={3}
+      py={1}
       gap={2}
     >
       {categories?.map((gender) => (

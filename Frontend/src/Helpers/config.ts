@@ -15,9 +15,7 @@ export function useFetch<T = unknown>(queryName: string, url: string) {
         .get(url)
         .then((res) => setData(res.data))
         .catch((err) => err)
-    }, {
-        staleTime: 1000 * 60, // 1 minute
-    } 
+    }
     )
 
     return {

@@ -2,7 +2,7 @@ import { Box, Input } from "@mui/joy";
 
 const Search = () => {
   return (
-    <Box display={"flex"} justifyContent={"center"} >
+    <Box display={"flex"} justifyContent={"center"} py={5} >
       <Input
         disabled={false}
         placeholder="Pesquise um filme"
