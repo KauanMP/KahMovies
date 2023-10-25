@@ -39,10 +39,10 @@ namespace WebUI.Config
         public static void UseScopedConfiguration(this IServiceCollection services)
         {
             services.AddScoped<IMovieRepository, MovieRepository>();
-            services.AddScoped<IAuthorRepository, AuthorRepository>();
+            services.AddScoped<IDirectorRepository, DirectorRepository>();
             services.AddScoped<IGenreRepository, GenreRepository>();
             services.AddScoped<IMovieManager, MovieManager>();
-            services.AddScoped<IAuthorManager, AuthorManager>();
+            services.AddScoped<IDirectorManager, DirectorManager>();
             services.AddScoped<IGenreManager, GenreManager>();
             services.AddScoped<IUserRepository, UserRepository>();
         }
@@ -50,7 +50,7 @@ namespace WebUI.Config
         public static void UseAutoMapperConfiguration(this IServiceCollection services)
         {
             services.AddAutoMapper(typeof(NewMovieMappingProfile));
-            services.AddAutoMapper(typeof(NewAuthorMappingProfile));
+            services.AddAutoMapper(typeof(NewDirectorMappingProfile));
             services.AddAutoMapper(typeof(NewGenreMappingProfile));
             services.AddAutoMapper(typeof(NewLoginMappingProfile));
         }

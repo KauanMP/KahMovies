@@ -4,18 +4,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Domain.Entities;
-using Domain.ModelViews.Author;
+using Domain.ModelViews.Director;
 
 namespace Manager.Mappings
 {
-    public class NewAuthorMappingProfile : Profile
+    public class NewDirectorMappingProfile : Profile
     {
-        public NewAuthorMappingProfile()
+        public NewDirectorMappingProfile()
         {
-            CreateMap<Author, AuthorReference>().ReverseMap();
-            CreateMap<Author, AuthorView>().ReverseMap();
-            CreateMap<Author, NewAuthor>().ReverseMap();
-            CreateMap<AuthorUpdate, Author>().ReverseMap();
+            CreateMap<Director, DirectorReference>().ReverseMap();
+            CreateMap<Director, DirectorView>().ReverseMap();
+            CreateMap<Director, NewDirector>().ReverseMap();
+            CreateMap<DirectorUpdate, Director>().ReverseMap();
         }
     }
 }

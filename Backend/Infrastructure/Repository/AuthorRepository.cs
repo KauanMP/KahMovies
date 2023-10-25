@@ -9,53 +9,53 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repository
 {
-    public class AuthorRepository : IAuthorRepository
+    public class DirectorRepository : IDirectorRepository
     {
         private readonly ApplicationDbContext dbContext;
 
-        public AuthorRepository(ApplicationDbContext dbContext)
+        public DirectorRepository(ApplicationDbContext dbContext)
         {
             this.dbContext = dbContext;
         }
 
-        public async Task<IEnumerable<Author>> GetAllAuthorsAsync()
+        public async Task<IEnumerable<Director>> GetAllDirectorsAsync()
         {
-            return await dbContext.Authors.AsNoTracking().ToListAsync();
+            return await dbContext.Directors.AsNoTracking().ToListAsync();
         }
 
-        public async Task<Author> GetAuthorByIdAsync(int id)
+        public async Task<Director> GetDirectorByIdAsync(int id)
         {
-            return await dbContext.Authors.SingleOrDefaultAsync(p => p.Id == id);
+            return await dbContext.Directors.SingleOrDefaultAsync(p => p.Id == id);
         }
 
-        public async Task<Author> InsertAuthorAsync(Author author)
+        public async Task<Director> InsertDirectorAsync(Director Director)
         {
-            await dbContext.AddAsync(author);
+            await dbContext.AddAsync(Director);
             await dbContext.SaveChangesAsync();
 
-            return author;
+            return Director;
         }
 
-        public async Task<Author> UpdateAuthorAsync(Author author)
+        public async Task<Director> UpdateDirectorAsync(Director Director)
         {
-            var findAuthors = await dbContext.Authors.FindAsync(author.Id);
+            var findDirectors = await dbContext.Directors.FindAsync(Director.Id);
 
-            if (findAuthors == null)
+            if (findDirectors == null)
             {
                 return null;
             }
 
-            dbContext.Entry(findAuthors).CurrentValues.SetValues(author);
+            dbContext.Entry(findDirectors).CurrentValues.SetValues(Director);
             await dbContext.SaveChangesAsync();
 
-            return author;
+            return Director;
         }
 
-        public async Task DeleteAuthorAsync(int id)
+        public async Task DeleteDirectorAsync(int id)
         {
-            var findAuthors = await dbContext.Authors.FindAsync(id);
+            var findDirectors = await dbContext.Directors.FindAsync(id);
 
-            dbContext.Authors.Remove(findAuthors);
+            dbContext.Directors.Remove(findDirectors);
             await dbContext.SaveChangesAsync();
         }
     }

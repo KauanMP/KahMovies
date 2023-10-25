@@ -16,7 +16,7 @@ namespace Domain.Entities
         public string Poster { get; set; }
         public string Trailer { get; set; }
         public string Sinopse { get; set; }
-        public ICollection<Author> Authors { get; set; }
+        public ICollection<Director> Directors { get; set; }
         public ICollection<Genre> Genres { get; set; }
     }
 }

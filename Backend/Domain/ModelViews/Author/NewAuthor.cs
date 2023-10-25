@@ -1,8 +1,8 @@
 
-namespace Domain.ModelViews.Author
+namespace Domain.ModelViews.Director
 {
-    public class NewAuthor
+    public class NewDirector
     {
-        public string AuthorName { get; set; }
+        public string DirectorName { get; set; }
     }
 }

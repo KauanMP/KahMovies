@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain.Entities;
-using Domain.ModelViews.Author;
+using Domain.ModelViews.Director;
 using Manager.Interfaces.IManager;
 using Manager.Interfaces.IRepository;
 using Microsoft.AspNetCore.Mvc;
@@ -12,11 +12,11 @@ namespace WebUI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AuthorController : ControllerBase
+    public class DirectorController : ControllerBase
     {
-        private readonly IAuthorManager manager;
+        private readonly IDirectorManager manager;
 
-        public AuthorController(IAuthorManager manager)
+        public DirectorController(IDirectorManager manager)
         {
             this.manager = manager;
         }
@@ -24,39 +24,39 @@ namespace WebUI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok(await manager.GetAllAuthorsAsync());
+            return Ok(await manager.GetAllDirectorsAsync());
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            return Ok(await manager.GetAuthorByIdAsync(id));
+            return Ok(await manager.GetDirectorByIdAsync(id));
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(NewAuthor newAuthor)
+        public async Task<IActionResult> Post(NewDirector newDirector)
         {
-            var insertAuthor = await manager.InsertAuthorAsync(newAuthor);
-            return CreatedAtAction(nameof(GetAll), new {id = insertAuthor.Id}, insertAuthor);
+            var insertDirector = await manager.InsertDirectorAsync(newDirector);
+            return CreatedAtAction(nameof(GetAll), new {id = insertDirector.Id}, insertDirector);
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put(AuthorUpdate authorUpdate)
+        public async Task<IActionResult> Put(DirectorUpdate DirectorUpdate)
         {
-            var updateAuthor = await manager.UpdateAuthorAsync(authorUpdate);
+            var updateDirector = await manager.UpdateDirectorAsync(DirectorUpdate);
 
-            if(authorUpdate == null)
+            if(DirectorUpdate == null)
             {
                 return NotFound();
             }
 
-            return Ok(updateAuthor);
+            return Ok(updateDirector);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            await manager.DeleteAuthorAsync(id);
+            await manager.DeleteDirectorAsync(id);
             return NoContent();
         }
     }

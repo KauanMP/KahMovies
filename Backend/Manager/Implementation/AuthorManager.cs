@@ -4,48 +4,48 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Domain.Entities;
-using Domain.ModelViews.Author;
+using Domain.ModelViews.Director;
 using Manager.Interfaces.IManager;
 using Manager.Interfaces.IRepository;
 
 namespace Manager.Implementation
 {
-    public class AuthorManager : IAuthorManager
+    public class DirectorManager : IDirectorManager
     {
-        private readonly IAuthorRepository repository;
+        private readonly IDirectorRepository repository;
         private readonly IMapper mapper;
 
-        public AuthorManager(IAuthorRepository repository, IMapper mapper)
+        public DirectorManager(IDirectorRepository repository, IMapper mapper)
         {
             this.repository = repository;
             this.mapper = mapper;
         }
 
-        public async Task<IEnumerable<AuthorView>> GetAllAuthorsAsync()
+        public async Task<IEnumerable<DirectorView>> GetAllDirectorsAsync()
         {
-            return mapper.Map<IEnumerable<Author>, IEnumerable<AuthorView>>(await repository.GetAllAuthorsAsync());
+            return mapper.Map<IEnumerable<Director>, IEnumerable<DirectorView>>(await repository.GetAllDirectorsAsync());
         }
 
-        public async Task<AuthorView> GetAuthorByIdAsync(int id)
+        public async Task<DirectorView> GetDirectorByIdAsync(int id)
         {
-            return mapper.Map<AuthorView>(await repository.GetAuthorByIdAsync(id));
+            return mapper.Map<DirectorView>(await repository.GetDirectorByIdAsync(id));
         }
 
-        public async Task<AuthorView> InsertAuthorAsync(NewAuthor newAuthor)
+        public async Task<DirectorView> InsertDirectorAsync(NewDirector newDirector)
         {
-            var findAuthor = mapper.Map<Author>(newAuthor);
-            return mapper.Map<AuthorView>(await repository.InsertAuthorAsync(findAuthor));
+            var findDirector = mapper.Map<Director>(newDirector);
+            return mapper.Map<DirectorView>(await repository.InsertDirectorAsync(findDirector));
         }
 
-        public async Task<AuthorView> UpdateAuthorAsync(AuthorUpdate authorUpdate)
+        public async Task<DirectorView> UpdateDirectorAsync(DirectorUpdate DirectorUpdate)
         {
-            var findAuthor = mapper.Map<Author>(authorUpdate);
-            return mapper.Map<AuthorView>(await repository.UpdateAuthorAsync(findAuthor));
+            var findDirector = mapper.Map<Director>(DirectorUpdate);
+            return mapper.Map<DirectorView>(await repository.UpdateDirectorAsync(findDirector));
         }
 
-        public async Task DeleteAuthorAsync(int id)
+        public async Task DeleteDirectorAsync(int id)
         {
-            await repository.DeleteAuthorAsync(id);
+            await repository.DeleteDirectorAsync(id);
         }
     }
 }

@@ -2,16 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Domain.ModelViews.Author;
+using Domain.ModelViews.Director;
 
 namespace Manager.Interfaces.IManager
 {
-    public interface IAuthorManager
+    public interface IDirectorManager
     {
-        Task<IEnumerable<AuthorView>> GetAllAuthorsAsync();
-        Task<AuthorView> GetAuthorByIdAsync(int id);
-        Task<AuthorView> InsertAuthorAsync(NewAuthor newAuthor);
-        Task<AuthorView> UpdateAuthorAsync(AuthorUpdate authorUpdate);
-        Task DeleteAuthorAsync(int id);
+        Task<IEnumerable<DirectorView>> GetAllDirectorsAsync();
+        Task<DirectorView> GetDirectorByIdAsync(int id);
+        Task<DirectorView> InsertDirectorAsync(NewDirector newDirector);
+        Task<DirectorView> UpdateDirectorAsync(DirectorUpdate DirectorUpdate);
+        Task DeleteDirectorAsync(int id);
     }
 }

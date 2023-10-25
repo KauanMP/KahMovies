@@ -6,12 +6,12 @@ using Domain.Entities;
 
 namespace Manager.Interfaces.IRepository
 {
-    public interface IAuthorRepository
+    public interface IDirectorRepository
     {
-        Task<IEnumerable<Author>> GetAllAuthorsAsync();
-        Task<Author> GetAuthorByIdAsync(int id);
-        Task<Author> InsertAuthorAsync(Author author);
-        Task<Author> UpdateAuthorAsync(Author author);
-        Task DeleteAuthorAsync(int id);
+        Task<IEnumerable<Director>> GetAllDirectorsAsync();
+        Task<Director> GetDirectorByIdAsync(int id);
+        Task<Director> InsertDirectorAsync(Director Director);
+        Task<Director> UpdateDirectorAsync(Director Director);
+        Task DeleteDirectorAsync(int id);
     }
 }

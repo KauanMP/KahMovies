@@ -14,7 +14,7 @@ namespace Infrastructure.Persistence
         }
 
         public DbSet<Movie> Movies { get; set; }
-        public DbSet<Author> Authors { get; set; }
+        public DbSet<Director> Directors { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<User> Users { get; set; }
 

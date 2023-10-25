@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Author
+    public class Director
     {
         public int Id { get; set; }
-        public string AuthorName { get; set; }
+        public string DirectorName { get; set; }
         public ICollection<Movie> Movies { get; set; }
     }
 }

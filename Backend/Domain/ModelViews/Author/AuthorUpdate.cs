@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Domain.ModelViews.Author
+namespace Domain.ModelViews.Director
 {
-    public class AuthorUpdate : NewAuthor
+    public class DirectorUpdate : NewDirector
     {
         public int Id { get; set; }
     }

@@ -21,7 +21,7 @@ namespace Infrastructure.Repository
         public async Task<IEnumerable<Movie>> GetAllMoviesAsync()
         {
             return await dbContext.Movies
-            .Include(p => p.Authors)
+            .Include(p => p.Directors)
             .Include(p => p.Genres)
             .AsNoTracking()
             .ToListAsync();
@@ -30,7 +30,7 @@ namespace Infrastructure.Repository
         public async Task<Movie> GetMovieByIdAsync(int id)
         {
             return await dbContext.Movies
-            .Include(p => p.Authors)
+            .Include(p => p.Directors)
             .Include(p => p.Genres)
             .AsNoTracking()
             .SingleOrDefaultAsync(p => p.Id == id);
@@ -38,7 +38,7 @@ namespace Infrastructure.Repository
 
         public async Task<Movie> InsertMoviesAsync(Movie movie)
         {
-            await InsertMovieAuthors(movie);
+            await InsertMovieDirectors(movie);
             await InsertMovieGenres(movie);
 
             await dbContext.Movies.AddAsync(movie);
@@ -46,15 +46,15 @@ namespace Infrastructure.Repository
             return movie;
         }
 
-        private async Task InsertMovieAuthors(Movie movie)
+        private async Task InsertMovieDirectors(Movie movie)
         {
-            var findAuthors = new List<Author>();
-            foreach (var Author in movie.Authors)
+            var findDirectors = new List<Director>();
+            foreach (var Director in movie.Directors)
             {
-                var findAuthor = await dbContext.Authors.FindAsync(Author.Id);
-                findAuthors.Add(findAuthor);
+                var findDirector = await dbContext.Directors.FindAsync(Director.Id);
+                findDirectors.Add(findDirector);
             }
-            movie.Authors = findAuthors;
+            movie.Directors = findDirectors;
         }
 
         public async Task InsertMovieGenres(Movie movie)
@@ -70,7 +70,7 @@ namespace Infrastructure.Repository
 
         public async Task<Movie> UpdateMovieAsync(Movie movie)
         {
-            var findMovies = await dbContext.Movies.Include(p => p.Authors).Include(p => p.Genres).SingleOrDefaultAsync(p => p.Id == movie.Id);
+            var findMovies = await dbContext.Movies.Include(p => p.Directors).Include(p => p.Genres).SingleOrDefaultAsync(p => p.Id == movie.Id);
 
             if (findMovies == null)
             {
@@ -78,20 +78,20 @@ namespace Infrastructure.Repository
             }
 
             dbContext.Entry(findMovies).CurrentValues.SetValues(movie);
-            await UpdateMovieAuthors(movie, findMovies);
+            await UpdateMovieDirectors(movie, findMovies);
             await UpdateMovieGenres(movie, findMovies);
 
             await dbContext.SaveChangesAsync();
             return findMovies;
         }
 
-        private async Task UpdateMovieAuthors(Movie movie, Movie findMovies)
+        private async Task UpdateMovieDirectors(Movie movie, Movie findMovies)
         {
-            findMovies.Authors.Clear();
-            foreach (var Author in movie.Authors)
+            findMovies.Directors.Clear();
+            foreach (var Director in movie.Directors)
             {
-                var findAuthor = await dbContext.Authors.FindAsync(Author.Id);
-                findMovies.Authors.Add(findAuthor);
+                var findDirector = await dbContext.Directors.FindAsync(Director.Id);
+                findMovies.Directors.Add(findDirector);
             }
         }
 
