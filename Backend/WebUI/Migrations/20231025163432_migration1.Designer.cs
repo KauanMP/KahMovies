@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace WebUI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231020173557_teste")]
-    partial class teste
+    [Migration("20231025163432_migration1")]
+    partial class migration1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,21 +36,6 @@ namespace WebUI.Migrations
                     b.ToTable("AuthorMovie");
                 });
 
-            modelBuilder.Entity("CategoryMovie", b =>
-                {
-                    b.Property<int>("CategoriesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MoviesId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CategoriesId", "MoviesId");
-
-                    b.HasIndex("MoviesId");
-
-                    b.ToTable("CategoryMovie");
-                });
-
             modelBuilder.Entity("Domain.Entities.Author", b =>
                 {
                     b.Property<int>("Id")
@@ -65,18 +50,18 @@ namespace WebUI.Migrations
                     b.ToTable("Authors");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Category", b =>
+            modelBuilder.Entity("Domain.Entities.Genre", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("CategoryName")
+                    b.Property<string>("GenreMovie")
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Genres");
                 });
 
             modelBuilder.Entity("Domain.Entities.Movie", b =>
@@ -90,6 +75,9 @@ namespace WebUI.Migrations
 
                     b.Property<int>("Duration")
                         .HasColumnType("int");
+
+                    b.Property<string>("Poster")
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime>("ReleaseYear")
                         .HasColumnType("datetime(6)");
@@ -121,6 +109,21 @@ namespace WebUI.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("GenreMovie", b =>
+                {
+                    b.Property<int>("GenresId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MoviesId")
+                        .HasColumnType("int");
+
+                    b.HasKey("GenresId", "MoviesId");
+
+                    b.HasIndex("MoviesId");
+
+                    b.ToTable("GenreMovie");
+                });
+
             modelBuilder.Entity("AuthorMovie", b =>
                 {
                     b.HasOne("Domain.Entities.Author", null)
@@ -136,11 +139,11 @@ namespace WebUI.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CategoryMovie", b =>
+            modelBuilder.Entity("GenreMovie", b =>
                 {
-                    b.HasOne("Domain.Entities.Category", null)
+                    b.HasOne("Domain.Entities.Genre", null)
                         .WithMany()
-                        .HasForeignKey("CategoriesId")
+                        .HasForeignKey("GenresId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

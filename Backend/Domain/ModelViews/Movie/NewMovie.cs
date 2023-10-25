@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Domain.ModelViews.Author;
-using Domain.ModelViews.Category;
+using Domain.ModelViews.Genre;
 
 namespace Domain.ModelViews.Movie
 {
@@ -26,13 +26,13 @@ namespace Domain.ModelViews.Movie
         [Range(1, 18, ErrorMessage = "O tempo de duração deve ser maior que zero")]
         public int Classification { get; set; }
 
-        public string Image { get; set; }
+        public string Poster { get; set; }
         
         [Url(ErrorMessage = "A URL é invalida")]
         public string Trailer { get; set; }
 
         public string Sinopse { get; set; }
         public ICollection<AuthorReference> Authors { get; set; }
-        public ICollection<CategoryReference> Categories { get; set; }
+        public ICollection<GenreReference> Genres { get; set; }
     }
 }

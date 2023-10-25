@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebUI.Migrations
 {
-    public partial class teste : Migration
+    public partial class migration1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,17 +29,17 @@ namespace WebUI.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Categories",
+                name: "Genres",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    CategoryName = table.Column<string>(type: "longtext", nullable: true)
+                    GenreMovie = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categories", x => x.Id);
+                    table.PrimaryKey("PK_Genres", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -54,6 +54,8 @@ namespace WebUI.Migrations
                     ReleaseYear = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Duration = table.Column<int>(type: "int", nullable: false),
                     Classification = table.Column<int>(type: "int", nullable: false),
+                    Poster = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     Trailer = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Sinopse = table.Column<string>(type: "longtext", nullable: true)
@@ -106,23 +108,23 @@ namespace WebUI.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "CategoryMovie",
+                name: "GenreMovie",
                 columns: table => new
                 {
-                    CategoriesId = table.Column<int>(type: "int", nullable: false),
+                    GenresId = table.Column<int>(type: "int", nullable: false),
                     MoviesId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CategoryMovie", x => new { x.CategoriesId, x.MoviesId });
+                    table.PrimaryKey("PK_GenreMovie", x => new { x.GenresId, x.MoviesId });
                     table.ForeignKey(
-                        name: "FK_CategoryMovie_Categories_CategoriesId",
-                        column: x => x.CategoriesId,
-                        principalTable: "Categories",
+                        name: "FK_GenreMovie_Genres_GenresId",
+                        column: x => x.GenresId,
+                        principalTable: "Genres",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CategoryMovie_Movies_MoviesId",
+                        name: "FK_GenreMovie_Movies_MoviesId",
                         column: x => x.MoviesId,
                         principalTable: "Movies",
                         principalColumn: "Id",
@@ -136,8 +138,8 @@ namespace WebUI.Migrations
                 column: "MoviesId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CategoryMovie_MoviesId",
-                table: "CategoryMovie",
+                name: "IX_GenreMovie_MoviesId",
+                table: "GenreMovie",
                 column: "MoviesId");
         }
 
@@ -147,7 +149,7 @@ namespace WebUI.Migrations
                 name: "AuthorMovie");
 
             migrationBuilder.DropTable(
-                name: "CategoryMovie");
+                name: "GenreMovie");
 
             migrationBuilder.DropTable(
                 name: "Users");
@@ -156,7 +158,7 @@ namespace WebUI.Migrations
                 name: "Authors");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Genres");
 
             migrationBuilder.DropTable(
                 name: "Movies");

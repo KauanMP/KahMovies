@@ -1,8 +1,6 @@
 using AutoMapper;
 using Domain.Entities;
 using Domain.ModelViews;
-using Domain.ModelViews.Author;
-using Domain.ModelViews.Category;
 using Domain.ModelViews.Movie;
 
 namespace Manager.Mappings

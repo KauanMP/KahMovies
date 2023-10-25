@@ -40,10 +40,10 @@ namespace WebUI.Config
         {
             services.AddScoped<IMovieRepository, MovieRepository>();
             services.AddScoped<IAuthorRepository, AuthorRepository>();
-            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IGenreRepository, GenreRepository>();
             services.AddScoped<IMovieManager, MovieManager>();
             services.AddScoped<IAuthorManager, AuthorManager>();
-            services.AddScoped<ICategoryManager, CategoryManager>();
+            services.AddScoped<IGenreManager, GenreManager>();
             services.AddScoped<IUserRepository, UserRepository>();
         }
 
@@ -51,7 +51,7 @@ namespace WebUI.Config
         {
             services.AddAutoMapper(typeof(NewMovieMappingProfile));
             services.AddAutoMapper(typeof(NewAuthorMappingProfile));
-            services.AddAutoMapper(typeof(NewCategoryMappingProfile));
+            services.AddAutoMapper(typeof(NewGenreMappingProfile));
             services.AddAutoMapper(typeof(NewLoginMappingProfile));
         }
 

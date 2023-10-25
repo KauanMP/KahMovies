@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Domain.ModelViews.Category
+namespace Domain.ModelViews.Genre
 {
-    public class CategoryUpdate : NewCategory
+    public class GenreUpdate : NewGenre
     {
         public int Id { get; set; }
     }
