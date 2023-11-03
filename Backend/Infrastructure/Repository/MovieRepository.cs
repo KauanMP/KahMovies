@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain.Entities;
+using Domain.Entities.MoviesInfo;
 using Domain.Interfaces;
 using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -40,6 +41,7 @@ namespace Infrastructure.Repository
         {
             await InsertMovieDirectors(movie);
             await InsertMovieGenres(movie);
+            await InsertMovieProducers(movie);
 
             await dbContext.Movies.AddAsync(movie);
             await dbContext.SaveChangesAsync();
@@ -66,6 +68,17 @@ namespace Infrastructure.Repository
                 findGenres.Add(findGenre);
             }
             movie.Genres = findGenres;
+        }
+
+        private async Task InsertMovieProducers(Movie movie)
+        {
+            var findProducers = new List<Producer>();
+            foreach (var Producer in movie.Producers)
+            {
+            var findProducer = await dbContext.Producers.FindAsync(Producer.Id);
+            findProducers.Add(findProducer);
+            }
+            movie.Producers = findProducers;
         }
 
         public async Task<Movie> UpdateMovieAsync(Movie movie)

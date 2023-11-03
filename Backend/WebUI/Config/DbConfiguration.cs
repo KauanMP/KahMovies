@@ -45,6 +45,8 @@ namespace WebUI.Config
             services.AddScoped<IDirectorManager, DirectorManager>();
             services.AddScoped<IGenreManager, GenreManager>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IProducerRepository, ProducersRepository>();
+            services.AddScoped<IProducerManager, ProducersManager>();
         }
 
         public static void UseAutoMapperConfiguration(this IServiceCollection services)
@@ -53,6 +55,7 @@ namespace WebUI.Config
             services.AddAutoMapper(typeof(NewDirectorMappingProfile));
             services.AddAutoMapper(typeof(NewGenreMappingProfile));
             services.AddAutoMapper(typeof(NewLoginMappingProfile));
+            services.AddAutoMapper(typeof(NewProducerMappingProfile));
         }
 
     }

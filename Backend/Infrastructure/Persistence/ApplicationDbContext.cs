@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain.Entities;
+using Domain.Entities.MoviesInfo;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistence
@@ -17,6 +18,7 @@ namespace Infrastructure.Persistence
         public DbSet<Director> Directors { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Producer> Producers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

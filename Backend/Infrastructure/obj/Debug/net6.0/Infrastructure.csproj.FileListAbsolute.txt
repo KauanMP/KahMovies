@@ -3,7 +3,9 @@ C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Infrastructure\bin\Debug\net6
 C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Infrastructure\bin\Debug\net6.0\Infrastructure.dll
 C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Infrastructure\bin\Debug\net6.0\Infrastructure.pdb
 C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Infrastructure\bin\Debug\net6.0\Domain.dll
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Infrastructure\bin\Debug\net6.0\Manager.dll
 C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Infrastructure\bin\Debug\net6.0\Domain.pdb
+C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Infrastructure\bin\Debug\net6.0\Manager.pdb
 C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.AssemblyReference.cache
 C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Infrastructure\obj\Debug\net6.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Infrastructure\obj\Debug\net6.0\Infrastructure.AssemblyInfoInputs.cache
@@ -15,5 +17,3 @@ C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Infrastructure\obj\Debug\net6
 C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Infrastructure\obj\Debug\net6.0\Infrastructure.pdb
 C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Infrastructure\obj\Debug\net6.0\Infrastructure.genruntimeconfig.cache
 C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Infrastructure\obj\Debug\net6.0\ref\Infrastructure.dll
-C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Infrastructure\bin\Debug\net6.0\Manager.dll
-C:\Users\kauan\Área de Trabalho\KahMovies\Backend\Infrastructure\bin\Debug\net6.0\Manager.pdb

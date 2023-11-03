@@ -2,6 +2,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Domain.ModelViews.Director;
 using Domain.ModelViews.Genre;
+using Domain.ModelViews.Producers;
 
 namespace Domain.ModelViews.Movie
 {
@@ -32,6 +33,7 @@ namespace Domain.ModelViews.Movie
         public string Trailer { get; set; }
 
         public string Sinopse { get; set; }
+        public ICollection<ProducerReference> Producers { get; set; }
         public ICollection<DirectorReference> Directors { get; set; }
         public ICollection<GenreReference> Genres { get; set; }
     }

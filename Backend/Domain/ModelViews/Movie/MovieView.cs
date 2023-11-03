@@ -1,5 +1,6 @@
 using Domain.ModelViews.Director;
 using Domain.ModelViews.Genre;
+using Domain.ModelViews.Producers;
 
 namespace Domain.ModelViews
 {
@@ -13,6 +14,7 @@ namespace Domain.ModelViews
         public string Poster { get; set; }
         public string Trailer { get; set; }
         public string Sinopse { get; set; }
+        public ICollection<ProducerView> Producers { get; set; }
         public ICollection<DirectorView> Directors { get; set; }
         public ICollection<GenreView> Genres { get; set; }
     }

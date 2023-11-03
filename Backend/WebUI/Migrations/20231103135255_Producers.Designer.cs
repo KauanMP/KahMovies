@@ -3,6 +3,7 @@ using System;
 using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace WebUI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231103135255_Producers")]
+    partial class Producers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -100,10 +102,15 @@ namespace WebUI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<int?>("MovieId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ProducerName")
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("MovieId");
 
                     b.ToTable("Producers");
                 });
@@ -136,21 +143,6 @@ namespace WebUI.Migrations
                     b.ToTable("GenreMovie");
                 });
 
-            modelBuilder.Entity("MovieProducer", b =>
-                {
-                    b.Property<int>("MoviesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProducersId")
-                        .HasColumnType("int");
-
-                    b.HasKey("MoviesId", "ProducersId");
-
-                    b.HasIndex("ProducersId");
-
-                    b.ToTable("MovieProducer");
-                });
-
             modelBuilder.Entity("DirectorMovie", b =>
                 {
                     b.HasOne("Domain.Entities.Director", null)
@@ -164,6 +156,13 @@ namespace WebUI.Migrations
                         .HasForeignKey("MoviesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Entities.MoviesInfo.Producer", b =>
+                {
+                    b.HasOne("Domain.Entities.Movie", null)
+                        .WithMany("Producers")
+                        .HasForeignKey("MovieId");
                 });
 
             modelBuilder.Entity("GenreMovie", b =>
@@ -181,19 +180,9 @@ namespace WebUI.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MovieProducer", b =>
+            modelBuilder.Entity("Domain.Entities.Movie", b =>
                 {
-                    b.HasOne("Domain.Entities.Movie", null)
-                        .WithMany()
-                        .HasForeignKey("MoviesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Domain.Entities.MoviesInfo.Producer", null)
-                        .WithMany()
-                        .HasForeignKey("ProducersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Producers");
                 });
 #pragma warning restore 612, 618
         }
