@@ -26,24 +26,26 @@ namespace Manager.Implementation
             return mapper.Map<IEnumerable<Producer>, IEnumerable<ProducerView>>(await repository.GetAllProducersAsync());
         }
 
-        public Task<ProducerView> GetProducerByIdAsync(int id)
+        public async Task<ProducerView> GetProducerByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return mapper.Map<ProducerView>(await repository.GetProducerByIdAsync(id));
         }
 
-        public Task<ProducerView> InsertProducerAsync(NewProducer newProducer)
+        public async Task<ProducerView> InsertProducerAsync(NewProducer newProducer)
         {
-            throw new NotImplementedException();
+            var insertProducer = mapper.Map<Producer>(newProducer);
+            return mapper.Map<ProducerView>(await repository.InsertProducerAsync(insertProducer));
         }
 
-        public Task<ProducerView> UpdateProducerAsync(ProducerUpdate producerUpdate)
+        public async Task<ProducerView> UpdateProducerAsync(ProducerUpdate producerUpdate)
         {
-            throw new NotImplementedException();
+            var updateProducer = mapper.Map<Producer>(producerUpdate);
+            return mapper.Map<ProducerView>(await repository.UpdateProducerAsync(updateProducer));
         }
 
-        public Task DeleteProducerAsync(int id)
+        public async Task DeleteProducerAsync(int id)
         {
-            throw new NotImplementedException();
+            await repository.DeleteProducerAsync(id);
         }
     }
 }

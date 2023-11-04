@@ -25,5 +25,38 @@ namespace WebUI.Controllers
         {
             return Ok(await manager.GetAllProducersAsync());
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            return Ok(await manager.GetProducerByIdAsync(id));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post(NewProducer newProducer)
+        {
+            var insertProducer = await manager.InsertProducerAsync(newProducer);
+            return CreatedAtAction(nameof(GetAll), new { id = insertProducer.Id }, insertProducer);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update(ProducerUpdate producerUpdate)
+        {
+            var updateProducer = await manager.UpdateProducerAsync(producerUpdate);
+
+            if (updateProducer == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(updateProducer);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await manager.DeleteProducerAsync(id);
+            return NoContent();
+        }
     }
 }
