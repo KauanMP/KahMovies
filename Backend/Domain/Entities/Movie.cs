@@ -20,5 +20,6 @@ namespace Domain.Entities
         public ICollection<Producer> Producers { get; set; }
         public ICollection<Director> Directors { get; set; }
         public ICollection<Genre> Genres { get; set; }
+        public ICollection<Screenwrite> Screenwriter { get; set; }
     }
 }

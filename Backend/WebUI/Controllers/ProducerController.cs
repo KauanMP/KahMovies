@@ -52,7 +52,7 @@ namespace WebUI.Controllers
             return Ok(updateProducer);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             await manager.DeleteProducerAsync(id);

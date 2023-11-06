@@ -1,6 +1,7 @@
 using Domain.ModelViews.Director;
 using Domain.ModelViews.Genre;
 using Domain.ModelViews.Producers;
+using Domain.ModelViews.Screenwrite;
 
 namespace Domain.ModelViews
 {
@@ -17,5 +18,6 @@ namespace Domain.ModelViews
         public ICollection<ProducerView> Producers { get; set; }
         public ICollection<DirectorView> Directors { get; set; }
         public ICollection<GenreView> Genres { get; set; }
+        public ICollection<ScreenwriteView> Screenwriter { get; set; }
     }
 }
