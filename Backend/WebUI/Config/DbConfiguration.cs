@@ -47,6 +47,8 @@ namespace WebUI.Config
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IProducerRepository, ProducersRepository>();
             services.AddScoped<IProducerManager, ProducersManager>();
+            services.AddScoped<IScreenwriteRepository, ScreenwriteRepository>();
+            services.AddScoped<IScreenwriteManager, ScreenwriteManager>();
         }
 
         public static void UseAutoMapperConfiguration(this IServiceCollection services)
@@ -56,6 +58,7 @@ namespace WebUI.Config
             services.AddAutoMapper(typeof(NewGenreMappingProfile));
             services.AddAutoMapper(typeof(NewLoginMappingProfile));
             services.AddAutoMapper(typeof(NewProducerMappingProfile));
+            services.AddAutoMapper(typeof(NewScreenwriteMappingProfile));
         }
 
     }
