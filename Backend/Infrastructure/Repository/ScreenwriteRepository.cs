@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Domain.Entities;
 using Infrastructure.Persistence;
 using Manager.Interfaces.IRepository;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repository
 {
@@ -17,29 +18,43 @@ namespace Infrastructure.Repository
             this.dbContext = dbContext;
         }
 
-        public Task<IEnumerable<Screenwrite>> GetAllScreenWriterAsync()
+        public async Task<IEnumerable<Screenwrite>> GetAllScreenwriterAsync()
         {
-            throw new NotImplementedException();
+            return await dbContext.Screenwriter.AsNoTracking().ToListAsync();
         }
 
-        public Task<Screenwrite> GetScreenWriterByIdAsync(int id)
+        public async Task<Screenwrite> GetScreenwriterByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await dbContext.Screenwriter.AsNoTracking().SingleOrDefaultAsync(p => p.Id == id);
         }
 
-        public Task<Screenwrite> InsertScreenWriterAsync(Screenwrite screenwrite)
+        public async Task<Screenwrite> InsertScreenwriterAsync(Screenwrite screenwrite)
         {
-            throw new NotImplementedException();
+            await dbContext.Screenwriter.AddAsync(screenwrite);
+            await dbContext.SaveChangesAsync();
+
+            return screenwrite;
         }
 
-        public Task<Screenwrite> UpdateScreenWriterAsync(Screenwrite screenwrite)
+        public async Task<Screenwrite> UpdateScreenwriterAsync(Screenwrite screenwrite)
         {
-            throw new NotImplementedException();
+            var updatedScreenwriter = await dbContext.Screenwriter.FindAsync(screenwrite.Id);
+
+            if (updatedScreenwriter == null)
+            {
+                return null;
+            }
+
+            dbContext.Entry(updatedScreenwriter).CurrentValues.SetValues(screenwrite);
+            return updatedScreenwriter;
         }
 
-        public Task<Screenwrite> DeleteScreenWriterAsync(int id)
+        public async Task DeleteScreenwriterAsync(int id)
         {
-            throw new NotImplementedException();
+            var deleteScreenwriter = await dbContext.Screenwriter.SingleOrDefaultAsync(p => p.Id == id);
+
+            dbContext.Remove(deleteScreenwriter);
+            await dbContext.SaveChangesAsync();
         }
     }
 }

@@ -8,10 +8,10 @@ namespace Manager.Interfaces.IManager
 {
     public interface IScreenwriteManager
     {
-        Task<IEnumerable<ScreenwriteView>> GetAllScreenWriterAsync();
-        Task<ScreenwriteView> GetScreenWriterByIdAsync(int id);
-        Task<ScreenwriteView> InsertScreenWriterAsync(NewScreenwrite newScreenwrite);
-        Task<ScreenwriteView> UpdateScreenWriterAsync(ScreenwriteUpdate screenwriteUpdate);
-        Task DeleteScreenWriterAsync(int id);
+        Task<IEnumerable<ScreenwriteView>> GetAllScreenwriterAsync();
+        Task<ScreenwriteView> GetScreenwriterByIdAsync(int id);
+        Task<ScreenwriteView> InsertScreenwriterAsync(NewScreenwrite newScreenwrite);
+        Task<ScreenwriteView> UpdateScreenwriterAsync(ScreenwriteUpdate screenwriteUpdate);
+        Task DeleteScreenwriterAsync(int id);
     }
 }

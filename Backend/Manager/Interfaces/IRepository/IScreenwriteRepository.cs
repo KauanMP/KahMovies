@@ -8,10 +8,10 @@ namespace Manager.Interfaces.IRepository
 {
     public interface IScreenwriteRepository
     {
-        Task<IEnumerable<Screenwrite>> GetAllScreenWriterAsync();
-        Task<Screenwrite> GetScreenWriterByIdAsync(int id);
-        Task<Screenwrite> InsertScreenWriterAsync(Screenwrite screenwrite);
-        Task<Screenwrite> UpdateScreenWriterAsync(Screenwrite screenwrite);
-        Task<Screenwrite> DeleteScreenWriterAsync(int id);
+        Task<IEnumerable<Screenwrite>> GetAllScreenwriterAsync();
+        Task<Screenwrite> GetScreenwriterByIdAsync(int id);
+        Task<Screenwrite> InsertScreenwriterAsync(Screenwrite screenwrite);
+        Task<Screenwrite> UpdateScreenwriterAsync(Screenwrite screenwrite);
+        Task DeleteScreenwriterAsync(int id);
     }
 }

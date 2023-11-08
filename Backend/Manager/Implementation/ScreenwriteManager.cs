@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using Domain.Entities;
 using Domain.ModelViews.Screenwrite;
 using Manager.Interfaces.IManager;
 using Manager.Interfaces.IRepository;
@@ -11,35 +13,39 @@ namespace Manager.Implementation
     public class ScreenwriteManager : IScreenwriteManager
     {
         private readonly IScreenwriteRepository repository;
+        private readonly Mapper mapper;
 
-        public ScreenwriteManager(IScreenwriteRepository repository)
+        public ScreenwriteManager(IScreenwriteRepository repository, Mapper mapper)
         {
             this.repository = repository;
-        }
-        
-        public Task<IEnumerable<ScreenwriteView>> GetAllScreenWriterAsync()
-        {
-            throw new NotImplementedException();
+            this.mapper = mapper;
         }
 
-        public Task<ScreenwriteView> GetScreenWriterByIdAsync(int id)
+        public async Task<IEnumerable<ScreenwriteView>> GetAllScreenwriterAsync()
         {
-            throw new NotImplementedException();
+            return mapper.Map<IEnumerable<Screenwrite>, IEnumerable<ScreenwriteView>>(await repository.GetAllScreenwriterAsync());
         }
 
-        public Task<ScreenwriteView> InsertScreenWriterAsync(NewScreenwrite newScreenwrite)
+        public async Task<ScreenwriteView> GetScreenwriterByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return mapper.Map<ScreenwriteView>(await repository.GetScreenwriterByIdAsync(id));
         }
 
-        public Task<ScreenwriteView> UpdateScreenWriterAsync(ScreenwriteUpdate screenwriteUpdate)
+        public async Task<ScreenwriteView> InsertScreenwriterAsync(NewScreenwrite newScreenwrite)
         {
-            throw new NotImplementedException();
+            var insertScreenwrite = mapper.Map<Screenwrite>(newScreenwrite);
+            return mapper.Map<ScreenwriteView>(await repository.InsertScreenwriterAsync(insertScreenwrite));
         }
 
-        public Task DeleteScreenWriterAsync(int id)
+        public async Task<ScreenwriteView> UpdateScreenwriterAsync(ScreenwriteUpdate screenwriteUpdate)
         {
-            throw new NotImplementedException();
+            var updatedScreenwrite = mapper.Map<Screenwrite>(screenwriteUpdate);
+            return mapper.Map<ScreenwriteView>(await repository.UpdateScreenwriterAsync(updatedScreenwrite));
+        }
+
+        public async Task DeleteScreenwriterAsync(int id)
+        {
+            await repository.DeleteScreenwriterAsync(id);
         }
     }
 }
