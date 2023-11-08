@@ -54,7 +54,7 @@ namespace WebUI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("GenreMovie")
+                    b.Property<string>("GenreName")
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
@@ -94,7 +94,7 @@ namespace WebUI.Migrations
                     b.ToTable("Movies");
                 });
 
-            modelBuilder.Entity("Domain.Entities.MoviesInfo.Producer", b =>
+            modelBuilder.Entity("Domain.Entities.Producer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -218,7 +218,7 @@ namespace WebUI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entities.MoviesInfo.Producer", null)
+                    b.HasOne("Domain.Entities.Producer", null)
                         .WithMany()
                         .HasForeignKey("ProducersId")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace WebUI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231103161435_consertandoProducers")]
-    partial class consertandoProducers
+    [Migration("20231108165450_fixDatabase")]
+    partial class fixDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -56,7 +56,7 @@ namespace WebUI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("GenreMovie")
+                    b.Property<string>("GenreName")
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
@@ -96,7 +96,7 @@ namespace WebUI.Migrations
                     b.ToTable("Movies");
                 });
 
-            modelBuilder.Entity("Domain.Entities.MoviesInfo.Producer", b =>
+            modelBuilder.Entity("Domain.Entities.Producer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -108,6 +108,20 @@ namespace WebUI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Producers");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Screenwrite", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Screenwriter")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Screenwriter");
                 });
 
             modelBuilder.Entity("Domain.Entities.User", b =>
@@ -153,6 +167,21 @@ namespace WebUI.Migrations
                     b.ToTable("MovieProducer");
                 });
 
+            modelBuilder.Entity("MovieScreenwrite", b =>
+                {
+                    b.Property<int>("MoviesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ScreenwriterId")
+                        .HasColumnType("int");
+
+                    b.HasKey("MoviesId", "ScreenwriterId");
+
+                    b.HasIndex("ScreenwriterId");
+
+                    b.ToTable("MovieScreenwrite");
+                });
+
             modelBuilder.Entity("DirectorMovie", b =>
                 {
                     b.HasOne("Domain.Entities.Director", null)
@@ -191,9 +220,24 @@ namespace WebUI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entities.MoviesInfo.Producer", null)
+                    b.HasOne("Domain.Entities.Producer", null)
                         .WithMany()
                         .HasForeignKey("ProducersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MovieScreenwrite", b =>
+                {
+                    b.HasOne("Domain.Entities.Movie", null)
+                        .WithMany()
+                        .HasForeignKey("MoviesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.Screenwrite", null)
+                        .WithMany()
+                        .HasForeignKey("ScreenwriterId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

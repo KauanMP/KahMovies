@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Domain.Entities.MoviesInfo;
+using Domain.Entities;
 using Infrastructure.Persistence;
 using Manager.Interfaces.IRepository;
 using Microsoft.EntityFrameworkCore;

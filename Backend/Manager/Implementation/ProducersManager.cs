@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using Domain.Entities.MoviesInfo;
+using Domain.Entities;
 using Domain.ModelViews.Producers;
 using Manager.Interfaces.IManager;
 using Manager.Interfaces.IRepository;

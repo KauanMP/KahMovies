@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain.Entities;
-using Domain.Entities.MoviesInfo;
 using Domain.Interfaces;
 using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +23,8 @@ namespace Infrastructure.Repository
             return await dbContext.Movies
             .Include(p => p.Directors)
             .Include(p => p.Genres)
+            .Include(p => p.Producers)
+            .Include(p => p.Screenwriter)
             .AsNoTracking()
             .ToListAsync();
         }
@@ -33,6 +34,8 @@ namespace Infrastructure.Repository
             return await dbContext.Movies
             .Include(p => p.Directors)
             .Include(p => p.Genres)
+            .Include(p => p.Producers)
+            .Include(p => p.Screenwriter)
             .AsNoTracking()
             .SingleOrDefaultAsync(p => p.Id == id);
         }
