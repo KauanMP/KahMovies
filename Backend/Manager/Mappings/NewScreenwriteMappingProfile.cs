@@ -12,9 +12,9 @@ namespace Manager.Mappings
     {
         public NewScreenwriteMappingProfile()
         {
-            CreateMap<Screenwrite, ScreenwriteView>().ReverseMap();
             CreateMap<Screenwrite, NewScreenwrite>().ReverseMap();
             CreateMap<Screenwrite, ScreenwriteReference>().ReverseMap();
+            CreateMap<Screenwrite, ScreenwriteView>().ReverseMap();
             CreateMap<ScreenwriteUpdate, Screenwrite>().ReverseMap();
         }
     }

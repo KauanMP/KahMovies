@@ -13,9 +13,9 @@ namespace Manager.Implementation
     public class ScreenwriteManager : IScreenwriteManager
     {
         private readonly IScreenwriteRepository repository;
-        private readonly Mapper mapper;
+        private readonly IMapper mapper;
 
-        public ScreenwriteManager(IScreenwriteRepository repository, Mapper mapper)
+        public ScreenwriteManager(IScreenwriteRepository repository, IMapper mapper)
         {
             this.repository = repository;
             this.mapper = mapper;

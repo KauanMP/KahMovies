@@ -35,7 +35,7 @@ namespace WebUI.Controllers
         public async Task<IActionResult> Post(NewScreenwrite newScreenwrite)
         {
             var insertScreenwriter = await manager.InsertScreenwriterAsync(newScreenwrite);
-            return CreatedAtAction(nameof(GetAll), new {id = insertScreenwriter.Id}, insertScreenwriter);
+            return CreatedAtAction(nameof(GetAll), new { id = insertScreenwriter.Id }, insertScreenwriter);
         }
 
         [HttpPut]
