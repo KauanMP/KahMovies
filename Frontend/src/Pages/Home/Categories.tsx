@@ -1,12 +1,9 @@
 import { Box, Button } from "@mui/joy";
 import { useFetch } from "../../Helpers/config";
-import { ICategory } from "../../Models/ICategory";
+import { IGenre } from "../../Interface/IGenre";
 
 const Categories = () => {
-  const { data: categories, isLoading } = useFetch<ICategory[]>(
-    "Categories",
-    "/Category"
-  );
+  const { data: genre, isLoading } = useFetch<IGenre[]>("Genres", "/Genre");
 
   if (isLoading) {
     return <p>Carregando...</p>;
@@ -22,9 +19,9 @@ const Categories = () => {
       py={1}
       gap={2}
     >
-      {categories?.map((gender) => (
-        <Button sx={{ backgroundColor: "#2A3D52" }} key={gender.id}>
-          {gender.categoryName}
+      {genre?.map((genreMap) => (
+        <Button sx={{ backgroundColor: "#2A3D52" }} key={genreMap.id}>
+          {genreMap.genreName}
         </Button>
       ))}
     </Box>
