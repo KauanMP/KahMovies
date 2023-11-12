@@ -2,12 +2,34 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Poppins", "Roboto", sans-serif;
 }
 
 body {
-  font-family: 'Poppins', 'Roboto', sans-serif;
-  background-color: #212B36;
   min-height: 100vh;
-  overflow-x: hidden;
+  background-color: #212b36;
 }
 
+.card {
+  position: relative;
+  border-radius: 10px;
+  max-width: 140px;
+  height: 209px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.swiper {
+  width: 950px;
+}
+
+section {
+  position: relative;
+  width: 1075px;
+}
+
+section .card .image img {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}

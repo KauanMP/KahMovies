@@ -1,4 +1,6 @@
-
+.swiper {
+  bottom: 0;
+}
 
 .swiper .res-slide {
   min-width: 149px;
