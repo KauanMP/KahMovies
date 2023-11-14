@@ -5,24 +5,21 @@ import { useFetch } from "../../Helpers/config";
 import { IMovie } from "../../Interface/IMovie";
 
 import { Box } from "@mui/joy";
-import { Link } from "react-router-dom";
-import { SwiperSlide } from "swiper/react";
 import Search from "../../components/Search/Search";
 import Categories from "./Categories";
-import Slide from "../../components/Carousel/Slide";
+import Slide from "../../components/Swiper/Slide";
+import { IGenre } from "../../Interface/IGenre";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const { data: movie, isLoading: isLoadingMovie } = useFetch<IMovie[]>(
-    "movie",
-    "/Movie"
-  );
+  const { isLoading: isLoadingGenre } = useFetch<IGenre[]>("genre", "/Genre");
+  const { isLoading: isLoadingMovie } = useFetch<IMovie[]>("movie", "/Movie");
 
   useEffect(() => {
-    if (!isLoadingMovie) {
+    if (!isLoadingMovie && !isLoadingGenre) {
       setIsLoading(false);
     }
-  }, [isLoadingMovie, isLoading]);
+  }, [isLoadingMovie, isLoadingGenre, isLoading]);
 
   return (
     <Box>
@@ -30,24 +27,7 @@ const Home = () => {
         <>
           <Search />
           <Categories />
-          <Slide genre={"Teste"}>
-            {movie?.map((movieMap) => (
-              <SwiperSlide className="card">
-                <div className="card-content">
-                  <div className="image">
-                    <Link to={`/movie/${movieMap.id}`}>
-                      <Box
-                        className="image"
-                        component="img"
-                        src={movieMap.poster}
-                        alt={movieMap.title}
-                      />
-                    </Link>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Slide>
+          <Slide />
         </>
       ) : (
         <h1>Carregando...</h1>

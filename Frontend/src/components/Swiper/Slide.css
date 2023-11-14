@@ -1,0 +1,43 @@
+section {
+  position: relative;
+  width: 1075px;
+}
+
+.swiper {
+  width: 950px;
+}
+
+.swiper-wrapper {
+  height: 240px!important;
+}
+
+.card {
+  border-radius: 10px;
+  max-width: 140px;
+  height: 209px;
+}
+
+section .card .image img {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.mySwiper .slidePrev,
+.mySwiper .slideNext {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.mySwiper .slidePrev svg,
+.mySwiper .slideNext svg {
+  font-size: 30px;
+  fill: #b79c09;
+}
+
+.mySwiper .slidePrev:disabled svg,
+.mySwiper .slideNext:disabled svg {
+  opacity: 0.3;
+}
