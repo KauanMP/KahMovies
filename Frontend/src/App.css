@@ -1,5 +1,5 @@
 .container {
   min-height: 75vh;
-  max-width: 85vw;
+  /* max-width: 85vw; */
   margin: 0 auto;
 }

@@ -1,5 +1,6 @@
 import { IDirector } from "./IDirector";
 import { IGenre } from "./IGenre";
+import { IProducer } from "./IProducer";
 import { IScreenwriter } from "./IScreenwrite";
 
 export interface IMovie {
@@ -12,6 +13,7 @@ export interface IMovie {
     poster: string;
     trailer: string;
     sinopse: string;
+    producers: IProducer[];
     directors: IDirector[];
     genres: IGenre[];
     screenwriter: IScreenwriter[];

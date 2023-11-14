@@ -7,8 +7,11 @@ import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
 import "./Slide.css";
 import { useFetch } from "../../Helpers/config";
+
+// Interfaces
 import { IGenre } from "../../Interface/IGenre";
 import { IMovie } from "../../Interface/IMovie";
+
 import { SwiperSlide } from "swiper/react";
 import { Link } from "react-router-dom";
 import SlideNav from "./SlideNav";

@@ -3,7 +3,7 @@ import { useFetch } from "../../Helpers/config";
 import { IGenre } from "../../Interface/IGenre";
 
 const Categories = () => {
-  const { data: genre, isLoading } = useFetch<IGenre[]>("Genres", "/Genre");
+  const { data: genre, isLoading } = useFetch<IGenre[]>("genres", "/Genre");
 
   if (isLoading) {
     return <p>Carregando...</p>;
